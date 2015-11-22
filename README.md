@@ -1,16 +1,22 @@
-# Analiza podatkov s programom R, 2015/16
+# Analiza podatkov prehranjevanja oz.prehrambenih navad ljudi v Sloveniji
 
 Avtor: Valentina Pucer
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2015/16.
 
-## Tematika
-Moja tema bo v povezavi s prehranjevanjem oz. s prehranjevalnimi navadami ljudi v Sloveniji.Podatke sem dobila na internetu:
+## Prehrambene navade ljudi v Sloveniji
 
--http://tradicionalni-zajtrk.si/media/uploads/public/_custom/projekti/Prehrambene_navade_odraslih_z_vidika_zdravja.pdf
+Moja tema bo v povezavi s prehranjevanjem oz. s prehranjevalnimi navadami ljudi v Sloveniji.
 
--http://www.stat.si/statweb/Common/PrikaziDokument.ashx?IdDatoteke=5650
-Cilj je, seznaniti sebe in ostale s podatki glede prehranjevalnih navad Slovencev, saj je to v današnjem svetu vse bolj pomembna tema.
+Podatke sem dobila na internetu:
+
+* `http://tradicionalni-zajtrk.si/media/uploads/public/_custom/projekti/Prehrambene_navade_odraslih_z_vidika_zdravja.pdf`
+
+* `http://www.stat.si/statweb/Common/PrikaziDokument.ashx?IdDatoteke=5650`
+
+Moj cilj je, seznaniti sebe in ostale s podatki glede prehranjevalnih navad Slovencev, saj je to v današnjem svetu vse bolj pomembna tema.
+
+Plan dela:.....
 
 ## Program
 
