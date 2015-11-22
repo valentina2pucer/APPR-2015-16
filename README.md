@@ -1,12 +1,16 @@
-# Analiza podatkov prehranjevanja oz.prehrambenih navad ljudi v Sloveniji
+# Analiza podatkov 
 
 Avtor: Valentina Pucer
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2015/16.
 
-## Prehrambene navade ljudi v Sloveniji
+## Kmetijstvo v Sloveniji
 
-Moja tema bo v povezavi s prehranjevanjem oz. s prehranjevalnimi navadami ljudi v Sloveniji.
+Analizirala bom podatke o kmetijstvu v Sloveniji. Najprej bom analizirala podatke 
+o kmetijskih površinah v Sloveniji od leta 2000 do leta 2013(velikost posameznih tipov površin). 
+V drugem delu pa bom analizirala še podatke o živinoreji v Sloveniji od leta 2000 do leta 2013(količina,..ipd.)
+
+Skozi analizo podatkov želim izvedeti, koliko v Sloveniji pridelamo/smo pridelali in kako se to spreminja s časom.
 
 Podatke sem dobila na internetu:
 
@@ -14,9 +18,12 @@ Podatke sem dobila na internetu:
 
 * `http://www.stat.si/statweb/Common/PrikaziDokument.ashx?IdDatoteke=5650`
 
-Moj cilj je, seznaniti sebe in ostale s podatki glede prehranjevalnih navad Slovencev, saj je to v današnjem svetu vse bolj pomembna tema.
+* `statistični urad RS:
+http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=1516501S&ti=&path=../Database/Okolje/15_kmetijstvo_ribistvo/03_kmetijska_gospod/01_15165_zemljisca/&lang=2`
 
-Plan dela:.....
+
+
+
 
 ## Program
 
