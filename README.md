@@ -6,11 +6,16 @@ Repozitorij z gradivi pri predmetu APPR v študijskem letu 2015/16.
 
 ## Kmetijstvo v Sloveniji
 
-Analizirala bom podatke o kmetijstvu v Sloveniji. Najprej bom analizirala podatke 
-o kmetijskih površinah v Sloveniji od leta 2000 do leta 2013(velikost posameznih tipov površin). 
+Kmetijstvo je ena osnovnih in prvotnih človekovih dejavnosti. Poljedelstvo se je npr. pojavilo pred približno 10.000 leti in je pomenilo velik korak v človekovem razvoju, saj  je omogočilo, da se je človek za stalno naselil na določenem področju.
+
+Slovenija ima veliko obdelovalnih površin, ki pa so v veliki meri neizkoriščene.
+Veliko ljudi, je opustilo kmetovanje, ker se jim to preprosto ne izplača. 
+Menim, da bi država morala dati večji povdarek na razvoj le-tega, saj bi potem v državi bilo več služb, več izvoza in bi to pripomoglo k polnjenju državne blagajne. 
+
+Odločila sem se, da bom analizirala  podatke o kmetijstvu v Sloveniji, z namenom, da izvem kaj več o tem, torej kakšno je stanje sedaj v primerjavi s preteklimi leti. Najprej bom analizirala podatke o kmetijskih površinah v Sloveniji od leta 2000 do leta 2013(velikost posameznih tipov površin). 
 V drugem delu pa bom analizirala še podatke o živinoreji v Sloveniji od leta 2000 do leta 2013(količina,..ipd.)
 
-Skozi analizo podatkov želim izvedeti, koliko v Sloveniji pridelamo/smo pridelali in kako se to spreminja s časom.
+Del podatkov, ki bo vezan na geografsko področje bo npr. število posameznih kmetijskih obdelovalnih površin po regijah (Pomurska, Podravska, Koroška...itd.)
 
 Podatke sem dobila na internetu:
 
