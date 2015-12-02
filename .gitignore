@@ -9,8 +9,6 @@ __pycache__
 *.doc
 *.docx
 *.gif
-*.htm
-*.html
 *.jpg
 *.lof
 *.knit.md
@@ -38,3 +36,4 @@ tmp-pdfcrop-*.tex
 .Rhistory
 .Rproj.user
 .RData
+projekt_zacetek.r
