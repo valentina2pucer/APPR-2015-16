@@ -1,34 +1,29 @@
 # Analiza podatkov 
 
 Avtor: Valentina Pucer
+Mentor: asist. dr. Janoš Vidali
 
 Repozitorij z gradivi pri predmetu APPR v študijskem letu 2015/16.
 
-## Kmetijstvo v Sloveniji
+## Tematika
 
-Kmetijstvo je ena osnovnih in prvotnih človekovih dejavnosti. Poljedelstvo se je npr. pojavilo pred približno 10.000 leti in je pomenilo velik korak v človekovem razvoju, saj  je omogočilo, da se je človek za stalno naselil na določenem področju.
+Za tematiko moje seminarske naloge sem si izbrala analizo podatkov naravnih nesreč v Združenih državah Amerike iz radovednosti, da izvem, v kakšnem obsegu so naravne nesreče na drugi strani sveta, koli denarne škode povzročijo..ipd.Naloge se bom lotila tako, da bom podatke iz spletne strani prenesla v program Microsoft Office Excel Worksheet in oblikovala tabelo, ki se bo od originalne razlikovala v tem, da bom nekaj odvečnih podatkov odstranila, nekaj dodala in uredila. Za vsak dogodek(katastrofo), bom podala:
 
-Slovenija ima veliko obdelovalnih površin, ki pa so v veliki meri neizkoriščene.
-Veliko ljudi, je opustilo kmetovanje, ker se jim to preprosto ne izplača. 
-Menim, da bi država morala dati večji povdarek na razvoj le-tega, saj bi potem v državi bilo več služb, več izvoza in bi to pripomoglo k polnjenju državne blagajne. 
+*ta dogodek(imenska spremenljivka)
 
-Odločila sem se, da bom analizirala  podatke o kmetijstvu v Sloveniji, z namenom, da izvem kaj več o tem, torej kakšno je stanje sedaj v primerjavi s preteklimi leti. Najprej bom analizirala podatke o kmetijskih površinah v Sloveniji od leta 2000 do leta 2013(velikost posameznih tipov površin). 
-V drugem delu pa bom analizirala še podatke o živinoreji v Sloveniji od leta 2000 do leta 2013(količina,..ipd.)
+*lokacija(imenska spremenljivka ....(za zemljevid))
 
-Del podatkov, ki bo vezan na geografsko področje bo npr. število posameznih kmetijskih obdelovalnih površin po regijah (Pomurska, Podravska, Koroška...itd.)
+*leto, v katerem se je nesreča pripetila (številska spremenljivka)
 
-Podatke sem dobila na internetu:
+*tip naravne nesreče, ki se je pripetila (imenska spremenljivka)
 
-* `http://tradicionalni-zajtrk.si/media/uploads/public/_custom/projekti/Prehrambene_navade_odraslih_z_vidika_zdravja.pdf`
+*število smrtnih žrtev(urejenostna smremenljivka (številska), HUDO, NI HUDO)
 
-* `http://www.stat.si/statweb/Common/PrikaziDokument.ashx?IdDatoteke=5650`
+*denarna škoda(urejenostna,....VELIKA ŠKODA, MANJŠA ŠKODA)
 
-* `statistični urad RS:
-http://pxweb.stat.si/pxweb/Dialog/varval.asp?ma=1516501S&ti=&path=../Database/Okolje/15_kmetijstvo_ribistvo/03_kmetijska_gospod/01_15165_zemljisca/&lang=2`
+Svoje podatke bom uvozila iz spletnega mesta:
 
-
-
-
+https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States
 
 ## Program
 
