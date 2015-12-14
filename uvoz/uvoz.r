@@ -12,8 +12,8 @@ require(rvest)
 require(gsubfn)
 
 uvozi.nesrece<-function(){
-  return(read.table("podatki/podatki anpr.xlsx", sep=";", header=TRUE,
-                    fileEncoding = "Windows-1250" ))
+  return(read.table("podatki/podatki anpr.csv", sep=";", header=TRUE,
+                    fileEncoding = "UTF-8" )
 }
 
 cat("Uvažam podatke o naravnih nesrečah v ZDA...\n")
