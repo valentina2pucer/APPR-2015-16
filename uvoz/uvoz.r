@@ -12,12 +12,19 @@ require(rvest)
 require(gsubfn)
 
 uvozi.nesrece<-function(){
-  return(read.table("podatki/podatki anpr.csv", sep=";", header=TRUE,
-                    fileEncoding = "UTF-8" )
+  return(read.csv2("podatki/podatki anpr.csv", sep=";", as.is = FALSE,
+                    fileEncoding = "Windows-1250", header = FALSE,
+                    na.strings = c("Unknown")))
 }
 
 cat("Uvažam podatke o naravnih nesrečah v ZDA...\n")
 nesrece<-uvozi.nesrece()
+nesrece$leto <- rep(NA, nrow(nesrece))
+nesrece[60,-4] <- nesrece[58,-4]
+prazne <- which(nesrece[,1] == "")
+nesrece[prazne-1, "leto"] <- as.numeric(gsub("-", "", nesrece[prazne, 4]))
+nesrece <- nesrece[-prazne,]
+
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine()
 
