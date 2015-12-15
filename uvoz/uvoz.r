@@ -13,8 +13,11 @@ require(gsubfn)
 
 uvozi.nesrece<-function(){
   return(read.csv2("podatki/podatki anpr.csv", sep=";", as.is = FALSE,
-                    fileEncoding = "Windows-1250", header = FALSE,
-                    na.strings = c("Unknown")))
+                    fileEncoding = "UTF-8", header = FALSE,
+                    na.strings = c("Unknown"),
+                   col.names=c("Leto","Tip naravne nesreče","Smrtne žrtve","Škoda","Dogodek","Lokacija","V7")
+                   
+                  ))
 }
 
 cat("Uvažam podatke o naravnih nesrečah v ZDA...\n")
@@ -24,6 +27,10 @@ nesrece[60,-4] <- nesrece[58,-4]
 prazne <- which(nesrece[,1] == "")
 nesrece[prazne-1, "leto"] <- as.numeric(gsub("-", "", nesrece[prazne, 4]))
 nesrece <- nesrece[-prazne,]
+nesrece<-subset(nesrece, select=-V7)
+names(nesrece)<-gsub("\\.", " ",names(nesrece))
+nesrece <- nesrece[c("Leto","Lokacija","Tip naravne nesreče","Dogodek","Smrtne žrtve","Škoda")]
+
 
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine()
