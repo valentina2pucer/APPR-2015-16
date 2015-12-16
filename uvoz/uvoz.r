@@ -36,6 +36,7 @@ nesrece$Tip.naravne.nesreče <- gsub("\\?", " ", nesrece$Tip.naravne.nesreče)
 nesrece$Dogodek <- gsub("\\?", "-", nesrece$Dogodek)
 nesrece$Smrtne.žrtve <- gsub("\\?", "-", nesrece$Smrtne.žrtve)
 
+
 #filtracija
 attach(nesrece)
 oznaka<-c("Večja","Manjša")
@@ -44,6 +45,8 @@ nesrece$Škoda <- gsub(",", "", nesrece$Škoda)
 nesrece$Škoda <- gsub("^Billions$", "1000000000", nesrece$Škoda)
 nesrece$Škoda <- gsub("million", "000000", nesrece$Škoda, ignore.case = TRUE)
 nesrece$Škoda <- gsub("billion", "000000000", nesrece$Škoda, ignore.case = TRUE)
+nesrece$Škoda<-gsub(" ", "", nesrece$Škoda)
+nesrece$Škoda<-as.numeric(nesrece$Škoda)
 povprecje<-mean(nesrece$Škoda, na.rm = TRUE )
 stopnja<-character(nrow(nesrece))
 stopnja[nesrece$Škoda<povprecje]<-"Manjša"
@@ -64,7 +67,8 @@ tabela1["Damage (US$)"]<-NULL
 tabela1["Location"]<-NULL
 tabela1["Comments"]<-NULL
 tabela1$Fatilities<-as.numeric(tabela1$Fatilities)
-tabela1$Fatilities <- gsub("\\,", "", tabela1$Fatilities)
+tabela1$Fatilities <- gsub(",", "", tabela1$Fatilities)
+tabela1$Fatilities<-gsub("\\+", "", tabela1$Fatilities)
 
 attach(tabela1)
 oznaka1<-c("Veliko","Malo")
@@ -76,7 +80,7 @@ detach(tabela1)
 
 dodatenstolpec1<-data.frame(Stopnja_smrti)
 tabela1<-data.frame(tabela1,Stopnja_smrti)
-
+tabela1<-tabela1[c("Leto","št.smrtnih_žrtev","Stopnja_smrti")]
 
 #iz prve tabele število smrtnih žrtev, poleg leta, oznaka(ogromno, malo).3stolpci
 #dva original, en dodan
