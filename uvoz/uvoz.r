@@ -81,6 +81,11 @@ detach(tabela1)
 
 tabela1<-data.frame(tabela1,Stopnja_smrti)
 
+#grafi
+cairo_pdf("slike/grafi1.pdf", family = "Arial")
+a<-rownames(tabela1)
+barplot(tabela1[tabela1$Stopnja_smrti>1000,"Stopnja_smrti"],names.arg = a[tabela1$Stopnja_smrti>1000],xlab="Stopnja smrti", ylab="", main= 'Grafični prikaz mrtvih', las=1, cex.names=0.75, col="blue")
+dev.off()
 
 
 
