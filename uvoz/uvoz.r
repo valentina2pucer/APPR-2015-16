@@ -43,12 +43,31 @@ stopnja[Škoda>povprecje]<-"Večja"
 Stopnja_skode<-factor(stopnja,levels=oznaka,ordered=TRUE)
 detach(nesrece)
 dodatenstolpec<-data.frame(Stopnja_skode)
-NESRECE<-data.frame(nesrece,Stopnja_skode)
-
+nesrece<-data.frame(nesrece,Stopnja_skode)
+#dej stran pike!
 
 #uvoz2(naravne nesreče, največ smrtnih žrtev)
 naslov="https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
 stran <- html_session(naslov) %>% read_html(encoding="UTF-8")
+tabela <- stran %>% html_nodes(xpath ="//table[1]") %>% .[[1]] %>% html_table()
+tabela$Type <- NULL
+tabela["Article"]<-NULL
+tabela["Damage (US$)"]<-NULL
+tabela["Location"]<-NULL
+tabela["Comments"]<-NULL
+
+attach(tabela)
+oznaka1<-c("Veliko","Malo")
+stopnja1<-character(nrow(tabela))
+stopnja1[Fatalities<1000]<-"Malo"
+stopnja1[Fatalities>1000]<-"Veliko"
+Stopnja_smrti<-factor(stopnja1,levels=oznaka1,ordered=TRUE)
+detach(tabela)
+
+dodatenstolpec1<-data.frame(Stopnja_smrti)
+tabela<-data.frame(tabela,Stopnja_smrti)
+
+
 #iz prve tabele število smrtnih žrtev, poleg leta, oznaka(ogromno, malo).3stolpci
 #dva original, en dodan
 
