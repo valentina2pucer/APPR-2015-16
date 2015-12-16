@@ -25,6 +25,8 @@ Svoje podatke bom uvozila iz spletnega mesta:
 
 https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States
 
+https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll
+
 ## Program
 
 Glavni program in poročilo se nahajata v datoteki `projekt.Rmd`. Ko ga prevedemo,

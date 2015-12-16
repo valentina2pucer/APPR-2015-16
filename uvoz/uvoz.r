@@ -11,6 +11,7 @@ require(dplyr)
 require(rvest)
 require(gsubfn)
 
+#uvoz1
 uvozi.nesrece<-function(){
   return(read.csv2("podatki/podatki anpr.csv", sep=";", as.is = FALSE,
                     fileEncoding = "UTF-8", header = FALSE,
@@ -31,7 +32,7 @@ nesrece<-subset(nesrece, select=-V7)
 names(nesrece)<-gsub("\\.", " ",names(nesrece))
 nesrece <- nesrece[c("Leto","Lokacija","Tip naravne nesreče","Dogodek","Smrtne žrtve","Škoda")]
 
-#vsota povprečja stolpcev
+#filtracija
 attach(nesrece)
 nesrece$Škoda<-rep(NA)
 oznaka<-c("Večja","Manjša")
@@ -43,13 +44,11 @@ Stopnja_skode<-factor(stopnja,levels=oznaka,ordered=TRUE)
 detach(nesrece)
 dodatenstolpec<-data.frame(Stopnja_skode)
 NESRECE<-data.frame(nesrece,Stopnja_skode)
-# Zapišimo podatke v razpredelnico druzine.
-#druzine <- uvozi.druzine()
 
-#obcine <- uvozi.obcine()
 
-# Če bi imeli več funkcij za uvoz in nekaterih npr. še ne bi
-# potrebovali v 3. fazi, bi bilo smiselno funkcije dati v svojo
-# datoteko, tukaj pa bi klicali tiste, ki jih potrebujemo v
-# 2. fazi. Seveda bi morali ustrezno datoteko uvoziti v prihodnjih
-# fazah.
+#uvoz2(naravne nesreče, največ smrtnih žrtev)
+naslov="https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
+stran <- html_session(naslov) %>% read_html(encoding="UTF-8")
+#iz prve tabele število smrtnih žrtev, poleg leta, oznaka(ogromno, malo).3stolpci
+#dva original, en dodan
+
