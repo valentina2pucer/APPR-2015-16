@@ -66,9 +66,13 @@ tabela1["Article"]<-NULL
 tabela1["Damage (US$)"]<-NULL
 tabela1["Location"]<-NULL
 tabela1["Comments"]<-NULL
-tabela1$Fatilities<-as.numeric(tabela1$Fatilities)
-tabela1$Fatilities <- gsub(",", "", tabela1$Fatilities)
-tabela1$Fatilities<-gsub("\\+", "", tabela1$Fatilities)
+tabela1$Fatalities <- gsub(",", "", tabela1$Fatalities)
+tabela1$Fatalities<-gsub("\\+", "", tabela1$Fatalities)
+#tabela1<-tabela1[c("Leto","št.smrtnih_žrtev","Stopnja_smrti")]
+
+tabela1$Fatalities<-gsub("\\(estimated)", "", tabela1$Fatalities)
+tabela1$Fatalities<-gsub("to"," ", tabela1$Fatalities)
+tabela1$Fatalities<-gsub("-"," ", tabela1$Fatalities)
 
 attach(tabela1)
 oznaka1<-c("Veliko","Malo")
@@ -80,7 +84,7 @@ detach(tabela1)
 
 dodatenstolpec1<-data.frame(Stopnja_smrti)
 tabela1<-data.frame(tabela1,Stopnja_smrti)
-tabela1<-tabela1[c("Leto","št.smrtnih_žrtev","Stopnja_smrti")]
+
 
 #iz prve tabele število smrtnih žrtev, poleg leta, oznaka(ogromno, malo).3stolpci
 #dva original, en dodan
