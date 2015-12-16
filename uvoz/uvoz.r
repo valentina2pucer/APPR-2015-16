@@ -31,7 +31,18 @@ nesrece<-subset(nesrece, select=-V7)
 names(nesrece)<-gsub("\\.", " ",names(nesrece))
 nesrece <- nesrece[c("Leto","Lokacija","Tip naravne nesreče","Dogodek","Smrtne žrtve","Škoda")]
 
-
+#vsota povprečja stolpcev
+attach(nesrece)
+nesrece$Škoda<-rep(NA)
+oznaka<-c("Večja","Manjša")
+povprecje<-as.numeric(mean(nesrece$Škoda))
+stopnja<-character(nrow(nesrece))
+stopnja[Škoda<povprecje]<-"Manjša"
+stopnja[Škoda>povprecje]<-"Večja"
+Stopnja_skode<-factor(stopnja,levels=oznaka,ordered=TRUE)
+detach(nesrece)
+dodatenstolpec<-data.frame(Stopnja_skode)
+NESRECE<-data.frame(nesrece,Stopnja_skode)
 # Zapišimo podatke v razpredelnico druzine.
 #druzine <- uvozi.druzine()
 
