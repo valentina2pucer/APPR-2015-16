@@ -19,7 +19,8 @@ source("lib/libraries.r", encoding = "UTF-8")
 
 # Izbira teme
 
-Za vzorec bomo prikazali nekaj podatkov o slovenskih občinah.
+Za tematiko moje seminarske naloge sem si izbrala analizo podatkov naravnih nesreč v Združenih državah Amerike iz radovednosti, da izvem, v kakšnem obsegu so naravne nesreče na drugi strani sveta, koli denarne škode povzročijo..ipd.Naloge se bom lotila tako, da bom podatke iz spletne strani prenesla v program Microsoft Office Excel Worksheet in oblikovala tabelo, ki se bo od originalne razlikovala v tem, da bom nekaj odvečnih podatkov odstranila, nekaj dodala in uredila. Drugo tabelo bom uvozla iz spletne strani in jo tudi preuredila. Nanašala pa se bo na podatke
+o številu smrtnih žrtev v dani naravni nesreči.
 
 ***
 
@@ -46,40 +47,3 @@ hist(obcine[,4], main = "Pogostost števila naselij",
 
 ***
 
-# Analiza in vizualizacija podatkov
-
-```{r vizualizacija, echo=FALSE}
-source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
-```
-
-Slika \ref{fig:zemljevid} prikazuje povprečno velikost družine za vsako občino.
-
-```{r zemljevid, echo=FALSE, fig.align='center', fig.cap='Zemljevid povprečnega števila otrok v družini'}
-n <- 100
-barve <- topo.colors(n)[1+(n-1)*(druzine$povprecje-min.povprecje)/(max.povprecje-min.povprecje)]
-plot(zemljevid, col = barve)
-title("Povprečno število otrok v družini")
-```
-
-***
-
-# Napredna analiza podatkov
-
-```{r analiza, echo=FALSE}
-source("analiza/analiza.r", encoding = "UTF-8")
-```
-
-Slika \ref{fig:graf} prikazuje povezavo med številom naselij in površino občine.
-
-```{r graf, echo=FALSE, fig.align='center', fig.cap='Povezava med številom naselij in površino občine'}
-plot(obcine[[1]], obcine[[4]],
-     main = "Število naselij glede na površino občine",
-     xlab = expression("Površina (km"^2 * ")"),
-     ylab = "Št. naselij",
-     col = barve[obcine[[7]]],
-     pch = 18)
-legend("topright", legend = names(barve), col = barve,
-       pch = 18, cex = 0.5, bg = "white")
-```
-
-***

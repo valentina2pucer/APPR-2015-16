@@ -35,7 +35,7 @@
 1999;Tornado;48;$1,500,000,000;1999 Oklahoma tornado outbreak;Oklahoma,?Kansas, Texas,Tennessee;66 tornadoes
 ;;;-2005;;;
 1998;Blizzard;30;;North American ice storm of 1998;Canada and Northeast;
-1998?1999;Landslide;0;$70,000,000;Aldercrest-Banyon landslide;Kelso, Washington;
+1998-1999;Landslide;0;$70,000,000;Aldercrest-Banyon landslide;Kelso, Washington;
 1997;Flood;0;$2,000,000,000;1997 Red River Flood;North Dakota,?Minnesota, Southern?Manitoba;
 1996;Flood;8;$500,000,000;Willamette Valley Flood of 1996;Washington,?Oregon,?Idaho, California;
 1995;Heat wave;739;;Chicago Heat Wave of 1995;Chicago, Illinois;
@@ -81,7 +81,7 @@
 1936;Flood;69;$3,000,000,000;Pittsburgh Flood 1936;Pittsburgh, Pennsylvania area;
 ;;;-2006;;;
 1935;Cyclone;423;;Labor Day Hurricane of 1935;Florida;
-1931?1939;Drought;Unknown;Unknown;Dust Bowl;Great Plains;Compounded by unsustainable agricultural techniques
+1931-1939;Drought;Unknown;Unknown;Dust Bowl;Great Plains;Compounded by unsustainable agricultural techniques
 1928;Cyclone;3;$800,000,000;1928 Okeechobee Hurricane;Leeward Islands,?Puerto Rico, the?Bahamas, and Florida;4,078+ believed dead total. About 2,500 died in Florida and 500 in the U.S. possession of Puerto Rico.
 ;;;-2005;;;
 1927;Flood;246;$400,000,000;Great Mississippi Flood of 1927;Arkansas,?Illinois,?Kentucky,Louisiana,?Mississippi, andTennessee;
@@ -89,7 +89,7 @@
 1925;Tornado;695?727;$1,650,000,000;Tri-State Tornado;Missouri,?Illinois?and?Indiana(Kentucky,?Tennessee);"Lower number for single 3-state tornado; higher for 5-state outbreak"
 ;;;-2005;;;
 1919;Cyclone;600;;1919 Florida Keys Hurricane;Florida, Texas;
-1918;Fire;453;$73 Million (US$1.145 Billion in 2015);1918 Cloquet Fire;Minnesota;Largest disaster in Minnesota history.
+1918;Fire;453;$73 Million ;1918 Cloquet Fire;Minnesota;Largest disaster in Minnesota history.
 1913;Flood;428;;1913 (Ohio) Statewide Flood;Southwest, Central, and Eastern?Ohio;
 1913;Flood;361;;Great Dayton Flood;Dayton, Ohio;Flood was created by a series of three winter storms that hit the region in March, 1913
 1913;Blizzard;250;;Great Lakes Storm of 1913;;Fatalities estimated
@@ -103,7 +103,7 @@
 1894;Fire;418;$73 Million;Great Hinckley Fire;Minnesota;Actual death toll likely higher than official death toll of 418.
 1893;Cyclone;2;;1893 Cheniere Caminada Hurricane;Louisiana;Fatalities estimated
 1893;Cyclone;1,000?2,000;;1893 Sea Islands Hurricane;Georgia,South Carolina;Fatalities estimated
-1889;Flood;2,209;$17 Million ($425 Million in 2012 dollars);Johnstown Flood;Johnstown, Pennsylvania;A dam failure caused 20 million tons of water to be unleashed, devastating Johnstown, PA and the surrounding area.
+1889;Flood;2,209;$17 Million ;Johnstown Flood;Johnstown, Pennsylvania;A dam failure caused 20 million tons of water to be unleashed, devastating Johnstown, PA and the surrounding area.
 1888;Blizzard;400;;Great Blizzard of 1888;Northeast;Fatalities estimated
 1888;Cold wave;Unknown;;1888 Northwest Cold Wave;Northwest;
 1871;Fire;1,500-2,500;;Peshtigo Fire;Wisconsin;Deadliest?firestorm?in United States history.
