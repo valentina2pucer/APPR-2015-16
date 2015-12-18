@@ -23,7 +23,7 @@ prazne <- which(nesrece[,1] == "")
 nesrece[prazne-1, "leto"] <- as.numeric(gsub("-", "", nesrece[prazne, 4]))
 nesrece <- nesrece[-prazne,]
 nesrece<-subset(nesrece, select=-V7)
-#names(nesrece)<-gsub("\\.", " ",names(nesrece))
+
 nesrece <- nesrece[c("Leto","Lokacija","Tip.naravne.nesreče","Dogodek","Smrtne.žrtve","Škoda")]
 nesrece$Lokacija <- gsub("\\?", " ", nesrece$Lokacija)
 nesrece$Tip.naravne.nesreče <- gsub("\\?", " ", nesrece$Tip.naravne.nesreče)
@@ -82,10 +82,10 @@ detach(tabela1)
 tabela1<-data.frame(tabela1,Stopnja_smrti)
 
 #grafi
-cairo_pdf("slike/grafi1.pdf", family = "Arial")
-a<-rownames(tabela1)
-barplot(tabela1[tabela1$Stopnja_smrti>1000,"Stopnja_smrti"],names.arg = a[tabela1$Stopnja_smrti>1000],xlab="Stopnja smrti", ylab="", main= 'Grafični prikaz mrtvih', las=1, cex.names=0.75, col="blue")
-dev.off()
+
+graf1<-tapply(tabela1$Stopnja_smrti, factor(tabela1$Stopnja_smrti))
+#par(mfrow=c(1,2))
+pie(graf1, col=rainbow(2))
 
 
 
