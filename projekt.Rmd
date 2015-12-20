@@ -38,6 +38,8 @@ jih iz nizov dati v as.numeric. Pri filtraciji podatkov sem glede na stolpec Šk
 
 v drugem uvozu sem  večidel stolpcev pobrisala. Ostala sta le dva prvotna in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske podatke prečistiti na ta način, da sem se znebila posameznih odvečnih znakov in jih iz nizov pretvorila v številski podatek, s katerim sem potem lahko upravljala.
 
+Ideja za napoved podatkov naslednji fazi: Iz prve tabele odvisnost ocenjene škode od lokacije naravne nesreče (razvitost območja) ali pa vpliv tipa naravne nesreče na stopnjo denarje škode. Lahko bi sklepala, da bodo posamezne manj razvite lokacije, kjer so se naravne nesreče zgodile, imele več denarne škode, ker imajo manj sredstev za vlaganje v zavarovanje pred temi dogodki (protipoplavni nasipi,
+protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
 ```{r razpredelnice}
 kable(head(druzine))

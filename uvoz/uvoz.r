@@ -91,8 +91,8 @@ tabela1<-data.frame(tabela1,Stopnja_smrti)
 library(plotrix)
 slices <- tabela1$Stopnja_smrti
 lbls <- c('Veliko','Malo')
-pie3D(slices, labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram',)
-def.off()
+pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
+
 
 
 
