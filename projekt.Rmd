@@ -1,6 +1,6 @@
 ---
-title:"Poročilo pri predmetu Analiza podatkov s programom R"
-author:"Valentina Pucer"
+title: "Poročilo pri predmetu Analiza podatkov s programom R"
+author: "Valentina Pucer"
 output:
   pdf_document:
     latex_engine: xelatex
@@ -8,8 +8,11 @@ output:
       in_header: lib/styles.sty
 ---
 
-
+```{r setup, echo=FALSE, results='hide', message=FALSE}
 source("lib/libraries.r", encoding = "UTF-8")
+source("uvoz/uvoz.r", encoding = "UTF-8")
+```
+
 
 
 # Izbira teme
