@@ -6,6 +6,7 @@ output:
     latex_engine: xelatex
     includes:
       in_header: lib/styles.sty
+   
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE}
@@ -25,7 +26,6 @@ izdelala zemljevid.
 
 # Obdelava, uvoz in čiščenje podatkov
 
-source("uvoz/uvoz.r", encoding = "UTF-8")
 
 
 Podatke sem uvozila v obliki .csv in direkt s spletne strani: "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
@@ -47,11 +47,7 @@ slices <- tabela1$Stopnja_smrti
 lbls <- c('Veliko','Malo')
 pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
 ```
-```{r graf1, echo=FALSE, fig.cap='Ta graf prikazuje število žrtev}
-a<-rownames(tabela1)
-barplot(tabela1[tabela1$Fatalities>=600,'Fatalities'],names.arg = a[tabela1$Fatalities>=600],xlab="LOKACIJA", ylab="ŠTEVILO ŽRTEV", main= 'ŠTEVILO ŽRTEV Z VEČ KOT 600 LJUDMI', las=1, cex.names=0.75, col="blue")
 
-```
 
 
 ***
