@@ -26,8 +26,6 @@ izdelala zemljevid.
 
 # Obdelava, uvoz in čiščenje podatkov
 
-
-
 Podatke sem uvozila v obliki .csv in direkt s spletne strani: "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
 Pri prvem uvozu sem tabeli uredila stolpce,tako da sm zamenjala njihov vrstni red,
 odvečni zadnji stolpec prvotne tabele pobrisala. Pobrisala sem tudi posamezne odvečne znake, ki so se pojavili v tabeli. Urediti sem morala tudi števila npr.
