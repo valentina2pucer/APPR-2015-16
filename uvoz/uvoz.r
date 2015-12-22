@@ -1,10 +1,5 @@
 # 2. faza: Uvoz podatkov
 
-require(dplyr)
-require(rvest)
-require(gsubfn)
-library(ggplot2)
-library(dplyr)
 
 #uvoz1
 uvozi.nesrece<-function(){

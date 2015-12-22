@@ -22,6 +22,7 @@ izdelala zemljevid.
 
 # Obdelava, uvoz in čiščenje podatkov
 
+source("uvoz/uvoz.r", encoding = "UTF-8")
 
 
 Podatke sem uvozila v obliki .csv in direkt s spletne strani: "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
@@ -35,7 +36,7 @@ Ideja za napoved podatkov naslednji fazi: Iz prve tabele odvisnost ocenjene ško
 protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
 
-#Tortni prikaz
+##Tortni prikaz
 
 
 ```{r torta, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
