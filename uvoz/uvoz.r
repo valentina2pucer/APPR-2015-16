@@ -81,17 +81,9 @@ detach(tabela1)
 
 tabela1<-data.frame(tabela1,Stopnja_smrti)
 
-#grafi
 
-#graf1<-tapply(tabela1$Stopnja_smrti, factor(tabela1$Stopnja_smrti))
-#par(mfrow=c(1,2))
-#pie(graf1, col=rainbow(2))
-#dev.off()
 
-library(plotrix)
-slices <- tabela1$Stopnja_smrti
-lbls <- c('Veliko','Malo')
-pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
+
 
 
 

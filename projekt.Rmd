@@ -38,8 +38,7 @@ protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo
 #Tortni prikaz
 
 
-```{uvoz.r}
-library(plotrix)
+```{r torta, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
 slices <- tabela1$Stopnja_smrti
 lbls <- c('Veliko','Malo')
 pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
