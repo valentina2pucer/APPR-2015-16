@@ -46,6 +46,10 @@ protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo
 slices <- tabela1$Stopnja_smrti
 lbls <- c('Veliko','Malo')
 pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
+```
+```{r graf1, echo=FALSE, fig.cap='Ta graf prikazuje število žrtev}
+a<-rownames(tabela1)
+barplot(tabela1[tabela1$Fatalities>=600,'Fatalities'],names.arg = a[tabela1$Fatalities>=600],xlab="LOKACIJA", ylab="ŠTEVILO ŽRTEV", main= 'ŠTEVILO ŽRTEV Z VEČ KOT 600 LJUDMI', las=1, cex.names=0.75, col="blue")
 
 ```
 
