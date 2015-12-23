@@ -60,3 +60,4 @@ Za zagon tega vzorca je potrebno namestiti sledeče pakete za R:
 * `httr` - za pobiranje spletnih strani
 * `XML` - za branje spletnih strani
 * `extrafont` - za pravilen prikaz šumnikov (neobvezno)
+
