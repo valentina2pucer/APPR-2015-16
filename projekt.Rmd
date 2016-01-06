@@ -28,12 +28,42 @@ izdelala zemljevid.
 
 Podatke sem uvozila v obliki .csv in direkt s spletne strani:
 
-- "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
+-  "https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States"
+
+-  "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
 
 Pri prvem uvozu sem tabeli uredila stolpce,tako da sem zamenjala njihov vrstni red, odvečni zadnji stolpec prvotne tabele pobrisala. Pobrisala sem tudi posamezne odvečne znake, ki so se pojavili v tabeli. Urediti sem morala tudi števila npr.
 jih iz nizov dati v as.numeric. Pri filtraciji podatkov sem glede na stolpec Škoda ocenila tip(stopnjo) škode in temu dodala nov stolpec.
 
-v drugem uvozu sem  večidel stolpcev pobrisala. Ostala sta le dva prvotna in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske podatke prečistiti na ta način, da sem se znebila posameznih odvečnih znakov in jih iz nizov pretvorila v številski podatek, s katerim sem potem lahko upravljala.
+Spremenljivke pri prvi tabeli:
+
+* ta dogodek(imenska spremenljivka)
+
+* lokacija(imenska spremenljivka ....(za zemljevid))
+
+* leto, v katerem se je nesreča pripetila (številska spremenljivka)
+
+* tip naravne nesreče, ki se je pripetila (imenska spremenljivka)
+
+* število smrtnih žrtev(urejenostna smremenljivka (številska), HUDO, NI HUDO)
+
+* denarna škoda(urejenostna,....VELIKA ŠKODA, MANJŠA ŠKODA)
+
+
+```{r razpredelnica, echo=FALSE}
+kable(head(nesrece))
+
+```
+
+
+
+V drugem uvozu sem  večidel stolpcev pobrisala. Ostala sta le dva prvotna in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske podatke prečistiti na ta način, da sem se znebila posameznih odvečnih znakov in jih iz nizov pretvorila v številski podatek, s katerim sem potem lahko upravljala.
+
+```{r razpredelnica1, echo=FALSE}
+kable(head(tabela1))
+
+```
+
 
 Ideja za napoved podatkov naslednji fazi: Iz prve tabele odvisnost ocenjene škode od lokacije naravne nesreče (razvitost območja) ali pa vpliv tipa naravne nesreče na stopnjo denarje škode. Lahko bi sklepala, da bodo posamezne manj razvite lokacije, kjer so se naravne nesreče zgodile, imele več denarne škode, ker imajo manj sredstev za vlaganje v zavarovanje pred temi dogodki (protipoplavni nasipi,
 protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
@@ -49,14 +79,18 @@ pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelc
 
 
 
-```{r graf1, echo=FALSE, warning=TRUE, fig.cap='Ta graf prikazuje število žrtev z več kot 600 ljudmi'} 
+
+```{r graf1, echo=FALSE, warning=TRUE, fig.cap='Ta graf prikazuje število žrtev z več kot 600 ljudmi'}
 a<-rownames(tabela1)
 barplot(tabela1[tabela1$Fatalities>=600,'Fatalities'],names.arg = a[tabela1$Fatalities>=600],xlab="LOKACIJA", ylab="ŠTEVILO ŽRTEV", main= 'ŠTEVILO ŽRTEV Z VEČ KOT 600 LJUDMI', las=1, cex.names=0.75, col="blue")
+
 ```
 
 
 
 
 
+
 ***
+
 
