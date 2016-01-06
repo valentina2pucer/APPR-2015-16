@@ -49,12 +49,12 @@ pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelc
 
 
 
-
-
-```{r graf1, echo=FALSE, warning=TRUE, fig.cap='Ta graf prikazuje število žrtev z več kot 600 ljudmi'}
+```{r graf1, echo=FALSE, warning=TRUE, fig.cap='Ta graf prikazuje število žrtev z več kot 600 ljudmi'} 
 a<-rownames(tabela1)
 barplot(tabela1[tabela1$Fatalities>=600,'Fatalities'],names.arg = a[tabela1$Fatalities>=600],xlab="LOKACIJA", ylab="ŠTEVILO ŽRTEV", main= 'ŠTEVILO ŽRTEV Z VEČ KOT 600 LJUDMI', las=1, cex.names=0.75, col="blue")
 ```
+
+
 
 
 
