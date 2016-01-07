@@ -81,13 +81,5 @@ detach(tabela1)
 
 tabela1<-data.frame(tabela1,Stopnja_smrti)
 
-#slices <- tabela1$Stopnja_smrti
-#lbls <- c('Veliko','Malo')
-#pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
-
-
-#a<-rownames(tabela1)
-#barplot(tabela1[tabela1$Fatalities>=600,'Fatalities'],names.arg = a[tabela1$Fatalities>=600],xlab="LOKACIJA", ylab="ŠTEVILO ŽRTEV", main= 'ŠTEVILO ŽRTEV Z VEČ KOT 600 LJUDMI', las=1, cex.names=0.75, col="blue")
-
 
 
