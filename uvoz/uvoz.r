@@ -90,3 +90,4 @@ tabela1<-data.frame(tabela1,Stopnja_smrti)
 #barplot(tabela1[tabela1$Fatalities>=600,'Fatalities'],names.arg = a[tabela1$Fatalities>=600],xlab="LOKACIJA", ylab="ŠTEVILO ŽRTEV", main= 'ŠTEVILO ŽRTEV Z VEČ KOT 600 LJUDMI', las=1, cex.names=0.75, col="blue")
 
 
+
