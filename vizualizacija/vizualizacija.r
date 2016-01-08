@@ -21,7 +21,7 @@ pretvori.zemljevid <- function(zemljevid) {
   fo <- fortify(zemljevid)
   data <- zemljevid@data
   data$id <- as.character(0:(nrow(data)-1))
-  return(inner_join(fo, data, by="id"))
+  return(inner_join(fo, data, by="id"))}
 
 zem <- pretvori.zemljevid(zda)
 ggplot() + geom_polygon(data = zdruzena.tabela %>% group_by(State) %>%
