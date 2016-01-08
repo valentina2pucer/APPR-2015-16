@@ -83,7 +83,7 @@ pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelc
 ```{r graf1, echo=FALSE, warning=TRUE, fig.cap='Ta graf prikazuje število žrtev z več kot 600 ljudmi'}
 ggplot(tabela1 %>% group_by(Year) %>% summarise(Fatalities = sum(Fatalities)) %>%
          filter(Fatalities >= 600),
-       aes(x = reorder(Year, Fatalities), y = Fatalities)) + geom_bar(stat = "identity") +
+       aes(x = factor(Year), y = Fatalities)) + geom_bar(stat = "identity") +
   coord_flip() + xlab("Year")
 ```
 Dana tabela prikazuje, kako seštevilo smrtni žrtev ki je večje od števila 600, spreminja skozi leta. Opazimo lahko, da je  število smrtnih žrtev v 19.stoletju približno 2000 na pripadajoče leto. Izjema je leto 1893, kjer je 3000 smrtnih žrtev.

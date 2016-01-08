@@ -81,5 +81,9 @@ detach(tabela1)
 
 tabela1<-data.frame(tabela1,Stopnja_smrti)
 
+ggplot(tabela1 %>% group_by(Year) %>% summarise(Fatalities = sum(Fatalities)) %>%
+         filter(Fatalities >= 600),
+       aes(x = factor(Year), y = Fatalities)) + geom_bar(stat = "identity") +
+  coord_flip() + xlab("Year")
 
 
