@@ -1,0 +1,241 @@
+\documentclass[]{article}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+    \usepackage{xltxtra,xunicode}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Mapping=tex-text,Scale=MatchLowercase}
+  \newcommand{\euro}{€}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage{longtable,booktabs}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\ifxetex
+  \usepackage[setpagesize=false, % page size defined by xetex
+              unicode=false, % unicode breaks when used with xetex
+              xetex]{hyperref}
+\else
+  \usepackage[unicode=true]{hyperref}
+\fi
+\hypersetup{breaklinks=true,
+            bookmarks=true,
+            pdfauthor={Valentina Pucer},
+            pdftitle={Poročilo pri predmetu Analiza podatkov s programom R},
+            colorlinks=true,
+            citecolor=blue,
+            urlcolor=blue,
+            linkcolor=magenta,
+            pdfborder={0 0 0}}
+\urlstyle{same}  % don't use monospace font for urls
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\setcounter{secnumdepth}{0}
+
+%%% Use protect on footnotes to avoid problems with footnotes in titles
+\let\rmarkdownfootnote\footnote%
+\def\footnote{\protect\rmarkdownfootnote}
+
+%%% Change title format to be more compact
+\usepackage{titling}
+
+% Create subtitle command for use in maketitle
+\newcommand{\subtitle}[1]{
+  \posttitle{
+    \begin{center}\large#1\end{center}
+    }
+}
+
+\setlength{\droptitle}{-2em}
+  \title{Poročilo pri predmetu Analiza podatkov s programom R}
+  \pretitle{\vspace{\droptitle}\centering\huge}
+  \posttitle{\par}
+  \author{Valentina Pucer}
+  \preauthor{\centering\large\emph}
+  \postauthor{\par}
+  \date{}
+  \predate{}\postdate{}
+
+\usepackage[slovene]{babel}
+\usepackage{graphicx}
+
+
+\begin{document}
+
+\maketitle
+
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 3.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'rvest' was built under R version 3.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'xml2' was built under R version 3.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'gsubfn' was built under R version 3.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'proto' was built under R version 3.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'ggplot2' was built under R version 3.2.3
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'plotrix' was built under R version 3.2.3
+\end{verbatim}
+
+\section{Izbira teme}\label{izbira-teme}
+
+Za tematiko svoje seminarske naloge sem si izbrala analizo podatkov
+naravnih nesreč v Združenih državah Amerike iz radovednosti, da izvem, v
+kakšnem obsegu so naravne nesreče na drugi strani sveta, koli denarne
+škode povzročijo..ipd.Naloge se se lotila tako, da sem podatke iz
+spletne strani prenesla v program Microsoft Office Excel Worksheet in
+oblikovala tabelo, ki se od originalne razlikuje v tem, da je nekaj
+odvečnih podatkov odstranjenih, nekaj dodanih in urejenih. Drugo tabelo
+sem uvozila iz spletne strani in jo tudi preuredila. Nanaša se na
+podatke o številu smrtnih žrtev v dani naravni nesreči. S pomočjo teh
+dveh tabel bom nato izdelala zemljevid.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\section{Obdelava, uvoz in čiščenje
+podatkov}\label{obdelava-uvoz-in-ciscenje-podatkov}
+
+Podatke sem uvozila v obliki .csv in direkt s spletne strani:
+
+\begin{itemize}
+\item
+  ``\url{https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States}''
+\item
+  ``\url{https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll}''
+\end{itemize}
+
+Pri prvem uvozu sem tabeli uredila stolpce,tako da sem zamenjala njihov
+vrstni red, odvečni zadnji stolpec prvotne tabele pobrisala. Pobrisala
+sem tudi posamezne odvečne znake, ki so se pojavili v tabeli. Urediti
+sem morala tudi števila npr. jih iz nizov dati v as.numeric. Pri
+filtraciji podatkov sem glede na stolpec Škoda ocenila tip(stopnjo)
+škode in temu dodala nov stolpec.
+
+Spremenljivke pri prvi tabeli:
+
+\begin{itemize}
+\item
+  ta dogodek(imenska spremenljivka)
+\item
+  lokacija(imenska spremenljivka \ldots{}.(za zemljevid))
+\item
+  leto, v katerem se je nesreča pripetila (številska spremenljivka)
+\item
+  tip naravne nesreče, ki se je pripetila (imenska spremenljivka)
+\item
+  število smrtnih žrtev(urejenostna smremenljivka (številska), HUDO, NI
+  HUDO)
+\item
+  denarna škoda(urejenostna,\ldots{}.VELIKA ŠKODA, MANJŠA ŠKODA)
+\end{itemize}
+
+\begin{longtable}[c]{@{}lllllrl@{}}
+\toprule
+Leto & Lokacija & Tip.naravne.nesreče & Dogodek & Smrtne.žrtve & Škoda &
+Stopnja\_skode\tabularnewline
+\midrule
+\endhead
+2015 & Texas, Kansas, Oklahoma & Flood & 2015 Texas-Oklahoma floods & 46
+& NA & NA\tabularnewline
+2015 & Carolinas & Flood & October 2015 North American Storm Complex &
+25 & 1e+09 & Manjša\tabularnewline
+2015 & Utah & Flood & 2015 Utah floods & 20 & NA & NA\tabularnewline
+2015 & Okanogan County, Washington & Wild fire & Okanogan Complex fire &
+3 & NA & NA\tabularnewline
+2014 & Oso, Washington & Mudflow & 2014 Oso mudslide & 43 & NA &
+NA\tabularnewline
+2014 & Nebraska, Louisiana,Oklahoma, Illinois, Florida,North Carolina &
+Tornado & April 2014 tornado outbreak & 35 & 1e+09 &
+Manjša\tabularnewline
+\bottomrule
+\end{longtable}
+
+V drugem uvozu sem večidel stolpcev pobrisala. Ostala sta le dva prvotna
+in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni
+nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske
+podatke prečistiti na ta način, da sem se znebila posameznih odvečnih
+znakov in jih iz nizov pretvorila v številski podatek, s katerim sem
+potem lahko upravljala.
+
+\begin{longtable}[c]{@{}rrl@{}}
+\toprule
+Year & Fatalities & Stopnja\_smrti\tabularnewline
+\midrule
+\endhead
+1900 & 6000 & Veliko\tabularnewline
+1906 & 3000 & Veliko\tabularnewline
+1928 & 3000 & Veliko\tabularnewline
+2001 & 2996 & Veliko\tabularnewline
+1941 & 2467 & Veliko\tabularnewline
+1889 & 2209 & Veliko\tabularnewline
+\bottomrule
+\end{longtable}
+
+Ideja za napoved podatkov naslednji fazi: Iz prve tabele odvisnost
+ocenjene škode od lokacije naravne nesreče (razvitost območja) ali pa
+vpliv tipa naravne nesreče na stopnjo denarje škode. Lahko bi sklepala,
+da bodo posamezne manj razvite lokacije, kjer so se naravne nesreče
+zgodile, imele več denarne škode, ker imajo manj sredstev za vlaganje v
+zavarovanje pred temi dogodki (protipoplavni nasipi, protipotresne
+zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo vpliv na
+stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti
+hurikana s poplavo.
+
+\begin{figure}
+
+{\centering \includegraphics{projekt_files/figure-latex/torta-1} 
+
+}
+
+\caption{Tortni diagram}\label{fig:torta}
+\end{figure}
+
+\includegraphics{projekt_files/figure-latex/graf1-1.pdf} Dana tabela
+prikazuje, kako seštevilo smrtni žrtev ki je večje od števila 600,
+spreminja skozi leta. Opazimo lahko, da je število smrtnih žrtev v
+19.stoletju približno 2000 na pripadajoče leto. Izjema je leto 1893,
+kjer je 3000 smrtnih žrtev.
+
+\begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\end{document}
