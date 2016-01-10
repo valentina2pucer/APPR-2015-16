@@ -61,7 +61,7 @@ tabela1 <- stran %>% html_nodes(xpath ="//table[1]") %>% .[[1]] %>% html_table()
 tabela1$Type <- NULL
 tabela1["Article"]<-NULL
 tabela1["Damage (US$)"]<-NULL
-tabela1["Location"]<-NULL
+#tabela1["Location"]<-NULL
 tabela1["Comments"]<-NULL
 tabela1$Fatalities <- gsub(",", "", tabela1$Fatalities)
 tabela1$Fatalities<-gsub("\\+", "", tabela1$Fatalities)
