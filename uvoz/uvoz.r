@@ -96,6 +96,13 @@ tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)")
 tabelaBDP[-c(1,2)] <- apply(tabelaBDP[-c(1,2)], 2,
                             . %>% {gsub(",", "", .)} %>% as.numeric())
 
+tabelaBDP <- tabelaBDP %>%
+  filter(!is.na(Rank) | grepl("District of Columbia", State))
 
+tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)") %>%
+  unlist() %>% factor()
 
 tabelaBDP<-data.frame(tabelaBDP)
+
+
+zdruzena.BDP <- inner_join(zdruzena.tabela, tabelaBDP)
