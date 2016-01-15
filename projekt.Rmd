@@ -91,10 +91,7 @@ Dana tabela prikazuje, kako seštevilo smrtni žrtev ki je večje od števila 60
 
 Spodnji zemljevid prikazuje gostoto smrtnih žrtev iz podatkov v tabeli1 na posameznih območjih v ZDA.
 
-```{r zem, }
 
-
-```
 
 Uvozila bom  novo tabelo, ki bo prizovala BDP za posamezne države od 2007 do 2012. Za vsako področje bom izračunala povprečni BDP.
 
