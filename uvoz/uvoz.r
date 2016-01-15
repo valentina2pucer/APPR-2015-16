@@ -96,4 +96,6 @@ tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)")
 tabelaBDP[-c(1,2)] <- apply(tabelaBDP[-c(1,2)], 2,
                             . %>% {gsub(",", "", .)} %>% as.numeric())
 
+
+
 tabelaBDP<-data.frame(tabelaBDP)
