@@ -86,4 +86,9 @@ ggplot(tabela1 %>% group_by(Year) %>% summarise(Fatalities = sum(Fatalities)) %>
        aes(x = factor(Year), y = Fatalities)) + geom_bar(stat = "identity") +
   coord_flip() + xlab("Year")
 
+#uvoz tabele št.3 od BDP
+naslov1="https://en.wikipedia.org/wiki/List_of_U.S._states_by_GDP_per_capita"
+stran1 <- html_session(naslov1) %>% read_html(encoding="UTF-8")
+tabelaBDP<- stran %>% html_nodes(xpath ="//table[1]") %>% .[[1]] %>% html_table()
 
+tabelaBDP<-data.frame(tabelaBD)

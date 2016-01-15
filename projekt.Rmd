@@ -58,6 +58,7 @@ kable(head(nesrece))
 
 V drugem uvozu sem  večidel stolpcev pobrisala. Ostala sta le dva prvotna in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske podatke prečistiti na ta način, da sem se znebila posameznih odvečnih znakov in jih iz nizov pretvorila v številski podatek, s katerim sem potem lahko upravljala.
 
+
 ```{r razpredelnica1, echo=FALSE}
 kable(head(tabela1))
 
@@ -65,7 +66,7 @@ kable(head(tabela1))
 
 
 Ideja za napoved podatkov naslednji fazi: Iz prve tabele odvisnost ocenjene škode od lokacije naravne nesreče (razvitost območja) ali pa vpliv tipa naravne nesreče na stopnjo denarje škode. Lahko bi sklepala, da bodo posamezne manj razvite lokacije, kjer so se naravne nesreče zgodile, imele več denarne škode, ker imajo manj sredstev za vlaganje v zavarovanje pred temi dogodki (protipoplavni nasipi,
-protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
+protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa moramo upoštevati, da imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
 
 
@@ -85,10 +86,19 @@ ggplot(tabela1 %>% group_by(Year) %>% summarise(Fatalities = sum(Fatalities)) %>
        aes(x = factor(Year), y = Fatalities)) + geom_bar(stat = "identity") +
   coord_flip() + xlab("Year")
 ```
+
 Dana tabela prikazuje, kako seštevilo smrtni žrtev ki je večje od števila 600, spreminja skozi leta. Opazimo lahko, da je  število smrtnih žrtev v 19.stoletju približno 2000 na pripadajoče leto. Izjema je leto 1893, kjer je 3000 smrtnih žrtev.
 
+Spodnji zemljevid prikazuje gostoto smrtnih žrtev iz podatkov v tabeli1 na posameznih območjih v ZDA.
+
+```{r zem, }
 
 
+```
+
+Uvozila bom  novo tabelo, ki bo prizovala BDP za posamezne države od 2007 do 2012. Za vsako področje bom izračunala povprečni BDP.
+
+Na podlagi tabele tabela1 in tabele nesreče bom analizirala, kako je to BDP povezan s tem (ali sploh je).
 
 
 ***
