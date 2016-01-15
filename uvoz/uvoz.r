@@ -91,5 +91,9 @@ naslov1="https://en.wikipedia.org/wiki/List_of_U.S._states_by_GDP_per_capita"
 stran1 <- html_session(naslov1) %>% read_html(encoding="UTF-8")
 tabelaBDP<- stran1 %>% html_nodes(xpath ="//table[1]") %>% .[[1]] %>% html_table(fill=TRUE)
 
+tabelaBDP$Rank <- tabelaBDP$Rank %>% strapplyc("([0-9]+)") %>% as.numeric()
+tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)")
+tabelaBDP[-c(1,2)] <- apply(tabelaBDP[-c(1,2)], 2,
+                            . %>% {gsub(",", "", .)} %>% as.numeric())
 
-tabelaBDP<-data.frame(tabelaBD)
+tabelaBDP<-data.frame(tabelaBDP)
