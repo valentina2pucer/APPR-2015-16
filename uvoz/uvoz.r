@@ -102,7 +102,26 @@ tabelaBDP <- tabelaBDP %>%
 tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)") %>%
   unlist() %>% factor()
 
-tabelaBDP<-data.frame(tabelaBDP)
+#DODATEN STOLPEC ZA POVPREČJE
+attach(tabelaBDP)
+
+i=1
+while i<=51: 
+for  tabelaBDP[i,] in tabelaBDP: 
+
+vsota.vrstice<-sum(tabelaBDP$2012,tabelaBDP$2011,tabelaBDP$2010,tabelaBDP$2009,tabelaBDP$2008,
+    tabelaBDP$2007)
+
+poprecje1<-vsota.vrstice/6
+
+#povrecje1<-mean(tabelaBDP$2012, na.rm = TRUE )
+
+povprecni_BDP<-factor(povprecje1)
+
+i+=1
+
+detach(tabelaBDP)
+
+tabelaBDP<-data.frame(tabelaBDP,povprecni_BDP)
 
 
-zdruzena.BDP <- inner_join(zdruzena.tabela, tabelaBDP)

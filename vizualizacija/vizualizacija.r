@@ -30,4 +30,4 @@ ggplot() + geom_polygon(data = zdruzena.tabela %>% group_by(State) %>%
                         aes(x = long, y = lat, group = group, fill = Fatalities))
 print(zem)
 
-
+zdruzena.BDP <- inner_join(zdruzena.tabela, tabelaBDP)
