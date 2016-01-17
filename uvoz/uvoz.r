@@ -92,24 +92,16 @@ stran1 <- html_session(naslov1) %>% read_html(encoding="UTF-8")
 tabelaBDP<- stran1 %>% html_nodes(xpath ="//table[1]") %>% .[[1]] %>% html_table(fill=TRUE)
 
 tabelaBDP$Rank <- tabelaBDP$Rank %>% strapplyc("([0-9]+)") %>% as.numeric()
-tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)")
+tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)") %>%
+  unlist() %>% factor()
 tabelaBDP[-c(1,2)] <- apply(tabelaBDP[-c(1,2)], 2,
                             . %>% {gsub(",", "", .)} %>% as.numeric())
 
 tabelaBDP <- tabelaBDP %>%
   filter(!is.na(Rank) | grepl("District of Columbia", State))
 
-tabelaBDP$State <- tabelaBDP$State %>% strapplyc("([a-zA-Z ]+)") %>%
-  unlist() %>% factor()
-
 #DODATEN STOLPEC ZA POVPREČJE
-
-attach(tabelaBDP)
-
 tabelaBDP$MeanBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
 
-detach(tabelaBDP)
-
-tabelaBDP<-data.frame(tabelaBDP,MeanBDP)
 
 
