@@ -93,6 +93,7 @@ Spodnji zemljevid prikazuje gostoto smrtnih žrtev iz podatkov v tabeli1 na posa
 
 
 
+
 Uvozila bom  novo tabelo, ki bo prizovala BDP za posamezne države od 2007 do 2012. Za vsako področje bom izračunala povprečni BDP.
 
 Na podlagi tabele tabela1 in tabele nesreče bom analizirala, kako je to BDP povezan s tem (ali sploh je).
