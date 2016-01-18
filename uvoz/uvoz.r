@@ -1,4 +1,4 @@
-# 2. faza: Uvoz podatkov
+# 2. faza: Uvoz podatkov,čiščenje...
 library(knitr)
 require(dplyr)
 require(rvest)
@@ -103,5 +103,8 @@ tabelaBDP <- tabelaBDP %>%
 #DODATEN STOLPEC ZA POVPREČJE
 tabelaBDP$PovprecjeBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
 
+
+#nova tabela:povezava povprečni BDP z stopnjo škode
+tabela_1<-data.frame(nesrece$Lokacija,nesrece$Stopnja_skode,tabelaBDP$State,tabela$BDPPovprecjeBDP)
 
 
