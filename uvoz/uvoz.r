@@ -101,7 +101,7 @@ tabelaBDP <- tabelaBDP %>%
   filter(!is.na(Rank) | grepl("District of Columbia", State))
 
 #DODATEN STOLPEC ZA POVPREČJE
-tabelaBDP$MeanBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
+tabelaBDP$PovprecjeBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
 
 
 
