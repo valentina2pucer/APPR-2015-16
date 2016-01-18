@@ -11,6 +11,7 @@ output:
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
 source("lib/libraries.r", encoding = "UTF-8")
 source("uvoz/uvoz.r", encoding = "UTF-8")
+source("vizualizacija/vizualizacija.r")
 ```
 
 
@@ -30,6 +31,9 @@ Podatke sem uvozila v obliki .csv in direkt s spletne strani:
 -  "https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States"
 
 -  "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
+
+- "https://en.wikipedia.org/wiki/List_of_U.S._states_by_GDP_per_capita"
+
 
 Pri prvem uvozu sem tabeli uredila stolpce,tako da sem zamenjala njihov vrstni red, odvečni zadnji stolpec prvotne tabele pobrisala. Pobrisala sem tudi posamezne odvečne znake, ki so se pojavili v tabeli. Urediti sem morala tudi števila npr.
 jih iz nizov dati v as.numeric. Pri filtraciji podatkov sem glede na stolpec Škoda ocenila tip(stopnjo) škode in temu dodala nov stolpec.
@@ -54,10 +58,7 @@ kable(head(nesrece))
 
 ```
 
-
-
 V drugem uvozu sem  večidel stolpcev pobrisala. Ostala sta le dva prvotna in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske podatke prečistiti na ta način, da sem se znebila posameznih odvečnih znakov in jih iz nizov pretvorila v številski podatek, s katerim sem potem lahko upravljala.
-
 
 ```{r razpredelnica1, echo=FALSE}
 kable(head(tabela1))
@@ -68,17 +69,11 @@ kable(head(tabela1))
 Ideja za napoved podatkov naslednji fazi: Iz prve tabele odvisnost ocenjene škode od lokacije naravne nesreče (razvitost območja) ali pa vpliv tipa naravne nesreče na stopnjo denarje škode. Lahko bi sklepala, da bodo posamezne manj razvite lokacije, kjer so se naravne nesreče zgodile, imele več denarne škode, ker imajo manj sredstev za vlaganje v zavarovanje pred temi dogodki (protipoplavni nasipi,
 protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa moramo upoštevati, da imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
-
-
-
 ```{r torta, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
 slices <- tabela1$Stopnja_smrti
 lbls <- c('Veliko','Malo')
 pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
 ```
-
-
-
 
 ```{r graf1, echo=FALSE, warning=TRUE, fig.cap='Ta graf prikazuje število žrtev z več kot 600 ljudmi'}
 ggplot(tabela1 %>% group_by(Year) %>% summarise(Fatalities = sum(Fatalities)) %>%
@@ -92,7 +87,10 @@ Dana tabela prikazuje, kako seštevilo smrtni žrtev ki je večje od števila 60
 Spodnji zemljevid prikazuje gostoto smrtnih žrtev iz podatkov v tabeli1 na posameznih območjih v ZDA.
 
 ```{r zemljevid1, echo=FALSE}
-
+ggplot() + geom_polygon(data = zdruzena.tabela %>% group_by(State) %>%
+                          summarise(Fatalities = sum(Fatalities)) %>%
+                          right_join(zem, by = c("State" = "STATE_NAME")),
+                        aes(x = long, y = lat, group = group, fill = Fatalities))
 
 ```
 
@@ -105,7 +103,9 @@ kable(head(tabelaBDP))
 
 ```
 
-Na podlagi tabele tabela1 in tabele nesreče bom analizirala, kako je to BDP povezan s tem (ali sploh je).
+Na podlagi tabele tabela1 in tabele nesreče bom analizirala, kako je povprečni  BDP povezan s tem (ali sploh je).
+Torej, kako je povprečni BDP povezan s stopnjo škode iz tabele nesrece in 
+kako, je povprečni BDP povezan s stopnjo smrti iz tabele tabela1.
 
 
 ***
