@@ -105,6 +105,21 @@ tabelaBDP$PovprecjeBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
 
 
 #nova tabela:povezava povprečni BDP z stopnjo škode
-tabela_1<-data.frame(nesrece$Lokacija,nesrece$Stopnja_skode,tabelaBDP$State,tabela$BDPPovprecjeBDP)
 
+nesrece$Row <- 1:nrow(nesrece)
+tabela_1 <- lapply(tabelaBDP$State, function(x) {
+  r <- grep(x, nesrece$Lokacija)
+  return(data.frame(State = rep(x, length(r)), Row = r))
+}) %>% bind_rows() %>% as.data.frame() %>%
+  inner_join(nesrece, by = "Row") %>%
+  inner_join(tabelaBDP, by = "State") %>%
+  select(Lokacija = State, Stopnja_skode, PovprecjeBDP)
+
+#izbrišem vrstice,ki se ponovoijo
+
+#najprej odstranim tiste vrstice z vrednostjo NA
+tabela_1<-tabela_1[!is.na(tabela_1$Stopnja_skode),]
+#sedaj želimo odstraniti še ponavljajoče po prvem stolpcu
+p<-duplicated(tabela1$Lokacija)
+#tabela1$Lokacija<-c(unique(p))
 
