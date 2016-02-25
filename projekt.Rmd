@@ -69,7 +69,9 @@ kable(head(tabela1))
 Ideja za napoved podatkov v naslednji fazi: Iz prve tabele odvisnost ocenjene škode od lokacije naravne nesreče (razvitost območja) ali pa vpliv tipa naravne nesreče na stopnjo denarje škode. Lahko bi sklepala, da bodo posamezne manj razvite lokacije, kjer so se naravne nesreče zgodile, imele več denarne škode, ker imajo manj sredstev za vlaganje v zavarovanje pred temi dogodki (protipoplavni nasipi,
 protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa moramo upoštevati, da imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
+
 #Vizualizacija
+
 
 ```{r torta, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
 slices <- tabela1$Stopnja_smrti
