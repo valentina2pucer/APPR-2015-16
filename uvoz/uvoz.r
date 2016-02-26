@@ -122,6 +122,19 @@ tabela_1<-tabela_1[!is.na(tabela_1$Stopnja_skode),]
 #sedaj želimo odstraniti še ponavljajoče po prvem stolpcu
 
 #p<-duplicated(tabela1$Lokacija)
-p<-tabela1$Lokacija[!dulicated(tabela1$Lokacija)]
+p<-tabela1$Lokacija[!duplicated(tabela1$Lokacija)]
 #tabela1$Lokacija<-c(unique(p))
 
+
+
+#Dodamo tabelo:tabela_2(enaka kot prejšnja, le da ima dodatni stolpec iz tabele1
+#stopnjo smrti)
+#tabela_2<-data.frame(tabela_1,Stopnja_smrti)
+tabela_1$Row <- 1:nrow(tabela_1)
+tabela_2 <- lapply(tabela1$Stopnja_smrti, function(x) {
+  r <- grep(x, tabela_1$Lokacija)
+  return(data.frame(Lokacija = rep(x, length(r)), Row = r))
+}) %>% bind_rows() %>% as.data.frame() %>%
+  inner_join(tabela_1, by = "Row") %>%
+  inner_join(tabela1, by = "Location") %>%
+  select(Lokacija = Location, Stopnja_smrti)
