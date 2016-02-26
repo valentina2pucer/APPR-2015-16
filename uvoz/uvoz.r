@@ -118,12 +118,12 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
 #izbrišem vrstice,ki se ponovoijo
 
 #najprej odstranim tiste vrstice z vrednostjo NA
-tabela_1<-tabela_1[!is.na(tabela_1$Stopnja_skode),]
+
 #sedaj želimo odstraniti še ponavljajoče po prvem stolpcu
 
-#p<-duplicated(tabela1$Lokacija)
-p<-tabela1$Lokacija[!duplicated(tabela1$Lokacija)]
-#tabela1$Lokacija<-c(unique(p))
+p<-duplicated(tabela_1$Lokacija)
+p<-tabela_1$Lokacija[!duplicated(tabela_1$Lokacija)]
+tabela_1$Lokacija<-c(unique(p))
 
 
 
