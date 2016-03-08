@@ -44,6 +44,11 @@ nesrece$Škoda<-gsub(" ", "", nesrece$Škoda)
 nesrece$Škoda<-as.numeric(nesrece$Škoda)
 nesrece$Smrtne.žrtve <- gsub(",", "", nesrece$Smrtne.žrtve)
 
+#popravek1
+nesrece$Smrtne.žrtve <-as.list(gsub("-", ",", nesrece$Smrtne.žrtve))
+
+#nesrece$Smrtne.žrtve<-as.numeric(nesrece$Smrtne.žrtve)
+
 povprecje<-mean(nesrece$Škoda, na.rm = TRUE )
 stopnja<-character(nrow(nesrece))
 stopnja[nesrece$Škoda<povprecje]<-"Manjša"
