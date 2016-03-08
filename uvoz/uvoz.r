@@ -133,17 +133,8 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
 }) %>% bind_rows() %>% as.data.frame() %>%
   inner_join(nesrece, by = "Row") %>%
   inner_join(tabelaBDP, by = "State") %>%
-  select(Lokacija = State, Stopnja_skode, PovprecjeBDP)
+  select(Lokacija = State, Stopnja_skode,Stopnja_smrti, PovprecjeBDP)
 
 
-
-nesrece$Row <- 1:nrow(nesrece)
-tabela_1 <- lapply(tabelaBDP$State, function(y) {
-  r <- grep(y, nesrece$Lokacija)
-  return(data.frame(State = rep(y, length(r)), Row = r))
-}) %>% bind_rows() %>% as.data.frame() %>%
-  inner_join(nesrece, by = "Row") %>%
-  inner_join(tabelaBDP, by = "State") %>%
-  select(Lokacija = State, Stopnja_smrti, PovprecjeBDP)
 
 
