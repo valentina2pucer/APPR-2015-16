@@ -53,6 +53,17 @@ detach(nesrece)
 
 nesrece<-data.frame(nesrece,Stopnja_skode)
 
+attach(nesrece)
+oznaka1<-c("Veliko","Malo")
+stopnja1<-character(nrow(nesrece))
+stopnja1[Smrtne.žrtve<=1000]<-"Malo"
+stopnja1[Smrtne.žrtve>1000]<-"Veliko"
+Stopnja_smrti<-factor(stopnja1,levels=oznaka1, ordered=TRUE)
+detach(nesrece)
+
+
+nesrece<-data.frame(nesrece,Stopnja_smrti)
+
 
 #uvoz2(naravne nesreče, največ smrtnih žrtev)
 naslov="https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
@@ -116,16 +127,13 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
   select(Lokacija = State, Stopnja_skode, PovprecjeBDP)
 
 
-
-
-#Dodamo tabelo:tabela_2(enaka kot prejšnja, le da ima dodatni stolpec iz tabele1
-#stopnjo smrti)
-#tabela_2<-data.frame(tabela_1,Stopnja_smrti)
-tabela_1$Row <- 1:nrow(tabela_1)
-tabela_2 <- lapply(tabela1$Stopnja_smrti, function(x) {
-  r <- grep(x, tabela_1$Lokacija)
-  return(data.frame(Lokacija = rep(x, length(r)), Row = r))
+nesrece$Row <- 1:nrow(nesrece)
+tabela_1 <- lapply(tabelaBDP$State, function(y) {
+  r <- grep(y, nesrece$Lokacija)
+  return(data.frame(State = rep(y, length(r)), Row = r))
 }) %>% bind_rows() %>% as.data.frame() %>%
-  inner_join(tabela_1, by = "Row") %>%
-  inner_join(tabela1, by = "Location") %>%
-  select(Lokacija = Location, Stopnja_smrti)
+  inner_join(nesrece, by = "Row") %>%
+  inner_join(tabelaBDP, by = "State") %>%
+  select(Lokacija = State, Stopnja_smrti, PovprecjeBDP)
+
+
