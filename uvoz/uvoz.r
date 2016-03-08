@@ -45,9 +45,13 @@ nesrece$Škoda<-as.numeric(nesrece$Škoda)
 nesrece$Smrtne.žrtve <- gsub(",", "", nesrece$Smrtne.žrtve)
 
 #popravek1
-nesrece$Smrtne.žrtve <-as.list(gsub("-", ",", nesrece$Smrtne.žrtve))
 
-#nesrece$Smrtne.žrtve<-as.numeric(nesrece$Smrtne.žrtve)
+nesrece$Smrtne.žrtve <- nesrece$Smrtne.žrtve %>%
+  strapplyc("([0-9]+)") %>% lapply(as.numeric) %>%
+  lapply(mean) %>% unlist()
+nesrece$Smrtne.žrtve[is.nan(nesrece$Smrtne.žrtve)] <- NA
+
+nesrece$Smrtne.žrtve<-as.integer(nesrece$Smrtne.žrtve)
 
 povprecje<-mean(nesrece$Škoda, na.rm = TRUE )
 stopnja<-character(nrow(nesrece))
