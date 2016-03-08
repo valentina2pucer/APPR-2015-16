@@ -127,6 +127,7 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
   select(Lokacija = State, Stopnja_skode, PovprecjeBDP)
 
 
+
 nesrece$Row <- 1:nrow(nesrece)
 tabela_1 <- lapply(tabelaBDP$State, function(y) {
   r <- grep(y, nesrece$Lokacija)
