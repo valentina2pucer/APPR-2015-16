@@ -1,5 +1,5 @@
 # 4. faza: Analiza podatkov
-
+library(ggplot2)
 
 nesrece$Row <- 1:nrow(nesrece)
 tabela_1 <- lapply(tabelaBDP$State, function(x) {
@@ -12,14 +12,14 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
 
 
 
-hist(tabela_1$PovprecjeBDP,
-     aes(x=Factor(tabela_$Lokacija),
-     main="Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?", 
-     xlab="Lokacija", 
-      col="grey",
-     las=1,
-     prob=TRUE)
-     
-lines(density(tabela_1$Stopnja_skode))
-lines(density(tabela_1$Stopnja_smrti))  
+ggplot(tabela_1, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
+  geom_bar(stat = "identity") + xlab("Lokacija") +
+  ggtitle("Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?") +
+  theme(axis.text.x = element_text(angle = 90, vjust = 0.5)) +
+  
+  #plot(tabela_1$Stopnja_skode)+
+  lines(tabela_1$Stopnja_skode,col="red")+
+    
+  plot(tabela_1,aes(y=tabela_1$Stopnja_smrti))+
+    lines(tabela_1$Stopnja_skode,col="green")
      
