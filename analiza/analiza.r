@@ -13,7 +13,7 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
 
 
 hist(tabela_1$PovprecjeBDP,
-     aes(x = factor(tabela_1$Lokacija), y = tabela_1$Stopnja_skode),
+     
      main="Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?", 
      xlab="Lokacija", 
       col="grey",
