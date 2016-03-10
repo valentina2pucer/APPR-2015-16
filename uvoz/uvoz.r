@@ -126,6 +126,7 @@ tabelaBDP$PovprecjeBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
 
 #nova tabela:povezava povprečni BDP z stopnjo škode
 
+
 nesrece$Row <- 1:nrow(nesrece)
 tabela_1 <- lapply(tabelaBDP$State, function(x) {
   r <- grep(x, nesrece$Lokacija)
@@ -134,6 +135,7 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
   inner_join(nesrece, by = "Row") %>%
   inner_join(tabelaBDP, by = "State") %>%
   select(Lokacija = State, Stopnja_skode,Stopnja_smrti, PovprecjeBDP)
+
 
 
 

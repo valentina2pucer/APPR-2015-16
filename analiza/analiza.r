@@ -1,4 +1,22 @@
 # 4. faza: Analiza podatkov
 
-barve <- rainbow(length(levels(obcine[[7]])))
-names(barve) <- levels(obcine[[7]])
+
+nesrece$Row <- 1:nrow(nesrece)
+tabela_1 <- lapply(tabelaBDP$State, function(x) {
+  r <- grep(x, nesrece$Lokacija)
+  return(data.frame(State = rep(x, length(r)), Row = r))
+}) %>% bind_rows() %>% as.data.frame() %>%
+  inner_join(nesrece, by = "Row") %>%
+  inner_join(tabelaBDP, by = "State") %>%
+  select(Lokacija = State, Stopnja_skode,Stopnja_smrti, PovprecjeBDP)
+
+
+
+hist(tabela_1$PovprecjeBDP,
+     aes(x = factor(tabela_1$Lokacija), y = tabela_1$Stopnja_skode),
+     main="Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?", 
+     xlab="Lokacija", 
+      col="grey",
+     
+     las=1, 
+     breaks=5)

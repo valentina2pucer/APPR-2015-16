@@ -16,7 +16,7 @@ source("vizualizacija/vizualizacija.r")
 
 
 
-# Izbira teme
+# 1.FAZA: Izbira teme
 
 Za tematiko svoje seminarske naloge sem si izbrala analizo podatkov naravnih nesreč v Združenih državah Amerike iz radovednosti, da izvem, v kakšnem obsegu so naravne nesreče na drugi strani sveta, koli denarne škode povzročijo..ipd.Naloge se se lotila tako, da sem podatke iz spletne strani prenesla v program Microsoft Office Excel Worksheet in oblikovala tabelo, ki se  od originalne razlikuje v tem, da je nekaj odvečnih podatkov odstranjenih, nekaj dodanih in urejenih. Drugo tabelo sem uvozila iz spletne strani in jo tudi preuredila. Nanaša  se na podatke
 o številu smrtnih žrtev v dani naravni nesreči. S pomočjo teh dveh tabel bom nato
@@ -24,7 +24,7 @@ izdelala zemljevid.
 
 ***
 
-# Obdelava, uvoz in čiščenje podatkov
+#2.FAZA: Obdelava, uvoz in čiščenje podatkov
 
 Podatke sem uvozila v obliki .csv in direkt s spletne strani:
 
@@ -70,7 +70,7 @@ Ideja za napoved podatkov v naslednji fazi: Iz prve tabele odvisnost ocenjene š
 protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa moramo upoštevati, da imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
 
-#Vizualizacija
+#Analiza in vizualizcija
 
 
 ```{r torta, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
@@ -110,11 +110,19 @@ kable(head(tabelaBDP))
 
 ```
 
-Na podlagi tabele tabela1 in tabele nesreče bom analizirala, kako je povprečni  BDP povezan s tem (ali sploh je).
+
+#4.FAZA: Napredna analiza
+
+Na podlagi tabele  tabele nesreče bom analizirala, kako je povprečni  BDP povezan s tem (ali sploh je).
 Torej, kako je povprečni BDP povezan s stopnjo škode iz tabele nesrece in 
 kako, je povprečni BDP povezan s stopnjo smrti iz tabele tabela1.
 
+```{r razpredelnica3, echo=FALSE}
+kable(head(tabela_1))
+
+```
+
+
+
 
 ***
-
-
