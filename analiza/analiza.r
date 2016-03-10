@@ -18,5 +18,6 @@ hist(tabela_1$PovprecjeBDP,
      xlab="Lokacija", 
       col="grey",
      
-     las=1, 
-     breaks=5)
+     las=1)
+     
+     #prob=TRUE)
