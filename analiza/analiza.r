@@ -17,9 +17,9 @@ hist(tabela_1$PovprecjeBDP,
      main="Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?", 
      xlab="Lokacija", 
       col="grey",
-     
      las=1,
      prob=TRUE)
+     
 lines(density(tabela_1$Stopnja_skode))
 lines(density(tabela_1$Stopnja_smrti))  
      
