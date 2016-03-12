@@ -128,7 +128,7 @@ tabelaBDP$PovprecjeBDP <- apply(tabelaBDP[c(3:8)], 1, mean, na.rm = TRUE)
 
 
 nesrece$Row <- 1:nrow(nesrece)
-tabela_1 <- lapply(tabelaBDP$State, function(x) {
+tabela_2 <- lapply(tabelaBDP$State, function(x) {
   r <- grep(x, nesrece$Lokacija)
   return(data.frame(State = rep(x, length(r)), Row = r))
 }) %>% bind_rows() %>% as.data.frame() %>%

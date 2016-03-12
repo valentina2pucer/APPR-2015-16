@@ -13,17 +13,13 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
 
 
 ggplot(tabela_1, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
-  geom_bar(stat = "identity") + xlab("Lokacija") +
+  # position = "dodge": stolpci za isto državo so en zraven drugega (da ne bodo prikazani BDP-ji večji v državah z več nesrečami)
+  geom_bar(stat = "identity", position = "dodge") +
+  # position = "jitter": naključno zamaknemo pike, da bodo podobne vrednosti bolje vidne
+  geom_point(aes(y = Škoda/1e9), position = "jitter") +
   ggtitle("Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?") +
-  theme(axis.text.x = element_text(angle = 90, vjust = 0.5))+ 
-  
-  plot(tabela_1$Škoda)+
-  lines(tabela_1$Škoda,col="red")+
-    
-  plot(tabela_1,aes(y=tabela_1$Smrtne.žrtve))+
-    lines(tabela_1$Smrtne.žrtve,col="green")
+  xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 
-
-
-
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()
      
