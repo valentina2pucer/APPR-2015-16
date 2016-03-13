@@ -19,6 +19,7 @@ ggplot(tabela_1, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
   geom_point(aes(y = Škoda/1e9), position = "jitter") +
   ggtitle("Ali je povezava med stopnjo škode in smrti s povprečnim BDP lokacije?") +
   xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
+ +geom_smooth(method = "lm")
 
 ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()
 
