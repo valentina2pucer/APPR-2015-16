@@ -2,13 +2,15 @@
 title: "Poročilo pri predmetu Analiza podatkov s programom R"
 author: "Valentina Pucer"
 output:
+  html_document: default
   pdf_document:
     includes:
       in_header: lib/styles.sty
-  html_document: default
+runtime: shiny
 ---
 
 ```{r setup, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+#uvoz vseh potrebnih knjižic
 source("lib/libraries.r", encoding = "UTF-8")
 source("uvoz/uvoz.r", encoding = "UTF-8")
 source("vizualizacija/vizualizacija.r")
@@ -18,9 +20,7 @@ source("vizualizacija/vizualizacija.r")
 
 # 1.FAZA: Izbira teme
 
-Za tematiko svoje seminarske naloge sem si izbrala analizo podatkov naravnih nesreč v Združenih državah Amerike iz radovednosti, da izvem, v kakšnem obsegu so naravne nesreče na drugi strani sveta, koli denarne škode povzročijo..ipd.Naloge se se lotila tako, da sem podatke iz spletne strani prenesla v program Microsoft Office Excel Worksheet in oblikovala tabelo, ki se  od originalne razlikuje v tem, da je nekaj odvečnih podatkov odstranjenih, nekaj dodanih in urejenih. Drugo tabelo sem uvozila iz spletne strani in jo tudi preuredila. Nanaša  se na podatke
-o številu smrtnih žrtev v dani naravni nesreči. S pomočjo teh dveh tabel bom nato
-izdelala zemljevid.
+Za tematiko svoje seminarske naloge sem si izbrala analizo podatkov naravnih nesreč v Združenih državah Amerike iz radovednosti, da izvem, v kakšnem obsegu so naravne nesreče na drugi strani sveta, koliko denarne škode povzročijo..ipd.Naloge sem se lotila tako, da sem podatke iz spletne strani prenesla v program Microsoft Office Excel Worksheet in oblikovala tabelo, ki se  od originalne razlikuje v tem, da je nekaj odvečnih podatkov odstranjenih, nekaj dodanih in urejenih. Drugo tabelo sem uvozila iz spletne strani in jo tudi preuredila. Nanaša  se na podatke o številu smrtnih žrtev v dani naravni nesreči. 
 
 ***
 
@@ -28,15 +28,16 @@ izdelala zemljevid.
 
 Podatke sem uvozila v obliki .csv in direkt s spletne strani:
 
--  "https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States"
+* 'https://en.wikipedia.org/wiki/List_of_natural_disasters_in_the_United_States'
 
--  "https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll"
+*  'https://en.wikipedia.org/wiki/List_of_disasters_in_the_United_States_by_death_toll'
 
-- "https://en.wikipedia.org/wiki/List_of_U.S._states_by_GDP_per_capita"
+* 'https://en.wikipedia.org/wiki/List_of_U.S._states_by_GDP_per_capita'
 
 
-Pri prvem uvozu sem tabeli uredila stolpce,tako da sem zamenjala njihov vrstni red, odvečni zadnji stolpec prvotne tabele pobrisala. Pobrisala sem tudi posamezne odvečne znake, ki so se pojavili v tabeli. Urediti sem morala tudi števila npr.
-jih iz nizov dati v as.numeric. Pri filtraciji podatkov sem glede na stolpec Škoda ocenila tip(stopnjo) škode in temu dodala nov stolpec.
+###Tabela nesrece
+
+Pri prvem uvozu sem tabeli uredila stolpce,tako da sem zamenjala njihov vrstni red, odvečni zadnji stolpec prvotne tabele pobrisala. Pobrisala sem tudi posamezne odvečne znake, ki so se pojavili v tabeli. Urediti sem morala tudi števila npr. jih iz nizov dati v as.numeric. Pri filtraciji podatkov sem glede na stolpec Škoda ocenila tip(stopnjo) škode in temu dodala nov stolpec.
 
 Spremenljivke pri prvi tabeli:
 
@@ -53,14 +54,16 @@ Spremenljivke pri prvi tabeli:
 * denarna škoda(urejenostna,....VELIKA ŠKODA, MANJŠA ŠKODA)
 
 
-```{r razpredelnica, echo=FALSE}
+```{r razpredelnica1, echo=FALSE}
 kable(head(nesrece))
 
 ```
 
+###Tabela1
+
 V drugem uvozu sem  večidel stolpcev pobrisala. Ostala sta le dva prvotna in tretji, ki se nanaša na število smrtnih žrtev pri neki naravni nesreči(stopnja smrti oz.umrljivosti).Tudi tukaj sem morala številske podatke prečistiti na ta način, da sem se znebila posameznih odvečnih znakov in jih iz nizov pretvorila v številski podatek, s katerim sem potem lahko upravljala.
 
-```{r razpredelnica1, echo=FALSE}
+```{r razpredelnica2, echo=FALSE}
 kable(head(tabela1))
 
 ```
@@ -70,10 +73,10 @@ Ideja za napoved podatkov v naslednji fazi: Iz prve tabele odvisnost ocenjene š
 protipotresne zgradbe), s pomočjo katerih je škoda manjša. Še vedno pa moramo upoštevati, da imajo vpliv na stopnjo denarne škode tudi drugi dejavniki, saj ne morem enačiti hurikana s poplavo.
 
 
-#Analiza in vizualizcija
+#3.FAZA: Analiza in vizualizcija
 
 
-```{r torta, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
+```{r torta1, echo=FALSE, fig.align='center', fig.cap='Tortni diagram'}
 slices <- tabela1$Stopnja_smrti
 lbls <- c('Veliko','Malo')
 pie3D(table(slices), labels=lbls, explode=0.15, start=1.5, labelrad=1.18, labelcex=1, main='Tortni diagram')
@@ -103,9 +106,9 @@ ggplot() + geom_polygon(data = zdruzena.tabela %>% group_by(State) %>%
 
 
 
-Uvozila bom  novo tabelo, ki bo prizovala BDP za posamezne države od 2007 do 2012. Za vsako področje bom izračunala povprečni BDP.
+Uvozila bom  novo tabelo, ki bo prikazovala BDP za posamezne države od 2007 do 2012. Za vsako področje bom izračunala povprečni BDP.
 
-```{r razpredelnica2, echo=FALSE}
+```{r razpredelnica3, echo=FALSE}
 kable(head(tabelaBDP))
 
 ```
@@ -113,16 +116,38 @@ kable(head(tabelaBDP))
 
 #4.FAZA: Napredna analiza
 
-Na podlagi tabele  tabele nesreče bom analizirala, kako je povprečni  BDP povezan s tem (ali sploh je).
-Torej, kako je povprečni BDP povezan s stopnjo škode iz tabele nesrece in 
-kako, je povprečni BDP povezan s stopnjo smrti iz tabele tabela1.
+```{r napr_analiza, echo=FALSE, results='hide', message=FALSE, warning=FALSE}
+source("analiza/analiza.r", encoding = "UTF-8")
+```
 
-```{r razpredelnica3, echo=FALSE}
+Na podlagi tabele tabela_1 bom analizirala, kako je povprečni  BDP povezan s škodo in številom smrtnih žrtev oz. ali je sploh povezan. 
+
+```{r razpredelnica4, echo=FALSE}
 kable(head(tabela_1))
 
 ```
 
+Spodnji graf prikazuje povprečni BDP /1000 (zaradi ogromnih števil) v odvisnosti od škode, ki je nastala pri posamezni naravni nesreči. Slučajna spremenljivka ŠKODA ima lognormalno porazdelitev. Grafični prikaz nam pove, da je pri nižjem BDP, ki sem  ga izbrala kot indikator za razvitost posameznega območja, škoda večja. To potrdi mojo predpostavko, da načeloma velja, da tiste države, ki so bolj razvite, so bolj pripravljene na naravne katastrofe, saj imajo več sredstev za vlaganje v to, da se zavarujejo pred njimi. Seveda pa so, tako kot povsod, tudi tukaj prisotna odstopanja zaradi izjem. 
+
+```{r graf2, echo=FALSE, warning=TRUE, fig.cap='Odvisnost povprečnega BDP od škode'}
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()
 
 
+```
+
+V grafu "Odvisnost povprečnega BDP od števila smrtnih žrtev" vidimo ponovno, da je porazdelitev lognormalna, kar je ponavadi značilno za število ljudi v odvisnosti od nečesa-povprečni BDP. Nižji kot je povprečni BDP glede na lokacijo, kjer se je naravna nesreča zgodila, nižje bo število smrtnih žrtev in obratno.
+Tudi tukaj moremo upoštevat seveda izjeme, npr. pri nižjem povprečnem BDP, kjer je bilo število smrtnih žrtev manjše, je najverjetne naravna nesreča bolj blaga oz. v manjšem obsegu.
+
+
+
+
+```{r graf3, echo=FALSE, warning=TRUE, fig.cap='Odvisnost povprečnega BDP od 
+števila smrtnih žrtev'}
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()
+
+```
 
 ***
+
+
+
