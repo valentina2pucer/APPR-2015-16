@@ -36,7 +36,7 @@ shinyUI(fluidPage(
                   label = "Izberi gostoto, ki te zanima",
                   choices = c("Redko", "Manj gosto",
                               "Gosto", "Najgosteje"),
-                  selected = "Redko"),
+                  selected = "Redko")
       
      
       ),

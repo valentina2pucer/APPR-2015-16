@@ -145,6 +145,11 @@ ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) +
 geom_point()+geom_smooth(method = "lm")
 ```
 
+
+Nadslednja tabela: tabela_3 je nastala na podlagi tabele nesrece, kjer sem 
+pobrala le podatke naravnih nesreč, katerih tip je poplava(flood).
+Ta tip naravne nesreče sem si izbralam ker se v tabeli pojavi najpogosteje.
+Primerjala bom BDP s stopnjo škode in številom smrtnih žrtev za posamezen dogodek. Moja primerjava bo tako boljša, saj bom imela posamezne dogodke z enakim tipom naravne nesreče.
 ***
 
 

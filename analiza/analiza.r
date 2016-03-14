@@ -27,5 +27,9 @@ ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()+g
 
 
 
+#GRUČENJE:
+
+
+
 
      
