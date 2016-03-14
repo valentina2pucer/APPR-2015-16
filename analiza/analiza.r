@@ -28,6 +28,9 @@ ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()+g
 
 
 #GRUČENJE:
+tabela_3<-nesrece
+tabela_3$Row<-NULL
+tabela_3<-tabela_3[tabela_3$Tip.naravne.nesreče!="Flood",]
 
 
 
