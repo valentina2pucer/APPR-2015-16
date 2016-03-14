@@ -130,8 +130,7 @@ kable(head(tabela_1))
 Spodnji graf prikazuje povprečni BDP /1000 (zaradi ogromnih števil) v odvisnosti od škode, ki je nastala pri posamezni naravni nesreči. Slučajna spremenljivka ŠKODA ima lognormalno porazdelitev. Grafični prikaz nam pove, da je pri nižjem BDP, ki sem  ga izbrala kot indikator za razvitost posameznega območja, škoda večja. To potrdi mojo predpostavko, da načeloma velja, da tiste države, ki so bolj razvite, so bolj pripravljene na naravne katastrofe, saj imajo več sredstev za vlaganje v to, da se zavarujejo pred njimi. Seveda pa so, tako kot povsod, tudi tukaj prisotna odstopanja zaradi izjem. 
 
 ```{r graf2, echo=FALSE, warning=TRUE, fig.cap='Odvisnost povprečnega BDP od škode'}
-ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()
-+geom_smooth(method = "lm")
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()+geom_smooth(method = "lm")
 
 ```
 
@@ -142,8 +141,8 @@ Tudi tukaj moremo upoštevat seveda izjeme, npr. pri nižjem povprečnem BDP, kj
 
 
 ```{r graf3, echo=FALSE, warning=TRUE, fig.cap='Odvisnost povprečnega BDP od števila smrtnih žrtev'}
-ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()
-+geom_smooth(method = "lm")
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) +
+geom_point()+geom_smooth(method = "lm")
 ```
 
 ***

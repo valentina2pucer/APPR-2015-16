@@ -21,9 +21,9 @@ ggplot(tabela_1, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
   xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
  +geom_smooth(method = "lm")
 
-ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Škoda/1e9)) + geom_point()+geom_smooth(method = "lm")
 
-ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()
+ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()+geom_smooth(method = "lm")
 
 
 
