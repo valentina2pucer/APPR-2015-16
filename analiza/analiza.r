@@ -35,7 +35,7 @@ tabela_3<-lapply(tabelaBDP$State, function(x) {
 }) %>% bind_rows() %>% as.data.frame() %>%
   inner_join(tabela_3, by = "Row") %>%
   inner_join(tabelaBDP, by = "State") %>%
-  select(Lokacija = State, Škoda,Smrtne.žrtve, PovprecjeBDP)
+  select(Lokacija = State,Tip.naravne.nesreče, Škoda,Smrtne.žrtve, PovprecjeBDP)
 
 
 
