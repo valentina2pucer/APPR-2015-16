@@ -140,3 +140,4 @@ tabela_2 <- lapply(tabelaBDP$State, function(x) {
 
 
 
+

@@ -28,9 +28,15 @@ ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()+g
 
 
 #GRUČENJE:
-tabela_3<-nesrece
-tabela_3$Row<-NULL
-tabela_3<-tabela_3[tabela_3$Tip.naravne.nesreče!="Flood",]
+tabela_3<-nesrece %>% filter(Tip.naravne.nesreče=="Flood") %>% select(-Row)
+tabela_3<-lapply(tabelaBDP$State, function(x) {
+  r <- grep(x, tabela_3$Lokacija)
+  return(data.frame(State = rep(x, length(r)), Row = r))
+}) %>% bind_rows() %>% as.data.frame() %>%
+  inner_join(tabela_3, by = "Row") %>%
+  inner_join(tabelaBDP, by = "State") %>%
+  select(Lokacija = State, Škoda,Smrtne.žrtve, PovprecjeBDP)
+
 
 
 
