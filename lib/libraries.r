@@ -4,6 +4,10 @@ require(rvest)
 require(gsubfn)
 library(ggplot2)
 library(plotrix)
+library(shiny)
+library(maps)
+library(mapproj)
+
 
 
 

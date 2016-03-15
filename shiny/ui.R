@@ -1,23 +1,20 @@
 library(shiny)
 
-shinyUI(fluidPage(
-  
-  titlePanel("Slovenske občine"),
-  
-  tabsetPanel(
-      tabPanel("Velikost družine",
-               DT::dataTableOutput("druzine")),
-      
-      tabPanel("Število naselij",
-               sidebarPanel(
-                  uiOutput("pokrajine")
-                ),
-               mainPanel(plotOutput("naselja"))),
-      
-      tabPanel("Zemljevid",
-               plotOutput("zemljevid")),
-      
-      tabPanel("Število naselij in površina",
-               plotOutput("povrsina"))
-    )
+
+shinyUI(fluidPage(titlePanel("Gostota smrtnih žrtev"),
+                  
+                  sidebarLayout(
+                    sidebarPanel(
+                      helpText("Poglej si gostoto smrtnih žrtev v naravnih nesrečah v ZDA."),
+                      
+                      selectInput("var", 
+                                  label = "Izberi gostoto, ki te zanima",
+                                  choices = c("Redko", "Manj gosto",
+                                              "Gosto", "Najgosteje"),
+                                  selected = "Redko")
+                    ),
+                    
+                    mainPanel(plotOutput("zem"))
+                  )
 ))
+
