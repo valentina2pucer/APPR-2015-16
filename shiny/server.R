@@ -1,17 +1,9 @@
-library(shiny)
-
-if ("server.R" %in% dir()) {
-  setwd("..")
-}
-source("lib/libraries.r", encoding = "UTF-8")
-source("uvoz/uvoz.r", encoding = "UTF-8")
-source("vizualizacija/vizualizacija.r", encoding = "UTF-8")
-source("analiza/analiza.r", encoding = "UTF-8")
+#library(shiny)
 
 #Aplikacija bo delovala tako, da boš lahko pogledal gostoto smrtnih žrtev na posameznih 
 #območjih
 #priprava ustrezne tabele:
-zem_tabela<-nesrece %>% select(Lokacija,Smrtne.žrtve)
+zem_tabela<-tabela_1 %>% select(Lokacija,Smrtne.žrtve)
 
 attach(zem_tabela)
 oznaka1<-c("Redko","Manj gosto","Gosto","Najgosteje")

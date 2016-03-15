@@ -92,7 +92,7 @@ ggplot(tabela1 %>% group_by(Year) %>% summarise(Fatalities = sum(Fatalities)) %>
 Dana tabela prikazuje, kako seštevilo smrtni žrtev ki je večje od števila 600, spreminja skozi leta. Opazimo lahko, da je  število smrtnih žrtev v 19.stoletju približno 2000 na pripadajoče leto. Izjema je leto 1893, kjer je 3000 smrtnih žrtev.
 
 
-#Zemljevid
+##Zemljevid 1
 
 Spodnji zemljevid prikazuje gostoto smrtnih žrtev iz podatkov v tabeli1 na posameznih območjih v ZDA.
 
@@ -103,6 +103,17 @@ ggplot() + geom_polygon(data = zdruzena.tabela %>% group_by(State) %>%
                         aes(x = long, y = lat, group = group, fill = Fatalities))
 
 ```
+
+##Zemljevid 2
+
+S spodnjo aplikacijo si lahko pogledamo posamezne lokacije, kjer je bila določena gostota smrtnih žrtev v naravni nesreči.
+
+
+```{r shiny1, echo=FALSE, fig.align='center', fig.cap='Gostota smrtnih žrtev'}
+shinyAppDir("shiny1", options=list(width="100%", height="590"))
+
+```
+
 
 
 
@@ -160,10 +171,10 @@ Spodnji graf prikazuje število smrtnih žrtev glede na povprečen BDP. Na tem k
 pogledati še stopnjo škode, za katero pa ni danega podatka.
 Primerljii sta le Illinois in Indiana. Indiana ima nižji povprečni BDP, vendar enako število smrtnih žrtev in škodo kot Illionis, tako da tukaj bi lahko rekli, da povprečni BDP nima nikakršnega vpliva.
 
-```{r graf4 , echo =FALSE,fig.cap='Povprečni BDP glede na število smrtnih žrtev'}
+```{r graf4, echo =FALSE,fig.cap='Povprečni BDP glede na število smrtnih žrtev'}
 ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
 geom_bar(stat = "identity", position = "dodge") +
-geom_point(aes(y = Smrtne.žrtve), position = "jitter")
+geom_point(aes(y = Smrtne.žrtve), position = "jitter")+
 xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 
 
