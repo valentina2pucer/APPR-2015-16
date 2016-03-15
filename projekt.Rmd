@@ -159,12 +159,11 @@ kable(head(tabela_3))
 Spodnji graf prikazuje število smrtnih žrtev glede na povprečen BDP. Na tem konkretnem primeru lahko vidim, da moja predpostavka ne drži, saj ima npr.Texas kljub visokem povprečnem BDP, večje število smrtnih žrtev. Tukaj bi potem morala 
 pogledati še stopnjo škode, za katero pa ni danega podatka.
 Primerljii sta le Illinois in Indiana. Indiana ima nižji povprečni BDP, vendar enako število smrtnih žrtev in škodo kot Illionis, tako da tukaj bi lahko rekli, da povprečni BDP nima nikakršnega vpliva.
-```{r graf4 , echo =FALSE}
+
+```{r graf4 , echo =FALSE,fig.cap='Povprečni BDP glede na število smrtnih žrtev'}
 ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
-  
 geom_bar(stat = "identity", position = "dodge") +
 geom_point(aes(y = Smrtne.žrtve), position = "jitter") +
-ggtitle("") +
 xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 
 
