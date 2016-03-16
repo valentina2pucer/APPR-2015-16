@@ -45,16 +45,7 @@ ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
   xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 
 
-tabela_4<-nesrece %>% filter(Tip.naravne.nesreče=="Tornado")
-tabela_4<-lapply(tabelaBDP$State, function(x) {
-  r <- grep(x, tabela_3$Lokacija)
-  return(data.frame(State = rep(x, length(r)), Row = r))
-}) %>% bind_rows() %>% as.data.frame() %>%
-  inner_join(tabela_3, by = "Row") %>%
-  inner_join(tabelaBDP, by = "State") %>%
-  select(Lokacija = State,Tip.naravne.nesreče, Škoda, PovprecjeBDP)
-
-ggplot(tabela_4, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
+ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
   
   geom_bar(stat = "identity", position = "dodge") +
   geom_point(aes(y = Škoda/1e8), position = "jitter") +

@@ -185,7 +185,7 @@ xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 Naslednji graf prikazuje odvisnost povprečnega BDP-ja glede na škodo, ki je nastala v naravni nesreči "Tornado". Iz danega grafa lahko vidim, da je škoda, ki je nastala v neki naravni nesreči  skladu z razmerjem glede na BDP z nekaterimi izjemami, kar potrjujeto to, da bi morali upoštevati tudi druge dejavnike(npr. v kašnem obsegu oz.kako huda je bila naravna nesreča).
 
 ```{r graf5, echo=FALSE, fig.cap='Povprečni BDP glede na škodo'}
-ggplot(tabela_4, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
+ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
 geom_bar(stat = "identity", position = "dodge") +
 geom_point(aes(y = Škoda/1e8), position = "jitter") +
 xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
