@@ -170,22 +170,23 @@ kable(head(tabela_3))
 
 ```
 
-Spodnji graf prikazuje število smrtnih žrtev glede na povprečen BDP. Na tem konkretnem primeru lahko vidim,da ima npr.Texas kljub visokem povprečnem BDP, večje število smrtnih žrtev. Tukaj bi potem morala 
-pogledati še stopnjo škode, za katero pa ni danega podatka.
-Primerljii sta le Illinois in Indiana. Indiana ima nižji povprečni BDP in vidimo, da je tudi število smrtnih žrtev nižje kot pri Illinois, kar potrdi mojo predpodstavko.
+Spodnji graf prikazuje število smrtnih žrtev glede na povprečen BDP. Na tem konkretnem primeru lahko vidim, da imajo države z višjim BDP število smrtnih žrtev nižje. Imamo pa tud nekaj izjem npr. Ohio, ki ima visok povprečni BDP, ampak tudi večje število smrtnih žrtev. Opazno je tudi veliko odstopanje pri 
+Pennsylaniji. Če pogledamo v tabelo, lahko vidimo, da je vzrok tega poplava leta
+1889, kjer je bila velika stopnja smrti.
 
 ```{r graf4, echo =FALSE,fig.cap='Povprečni BDP glede na število smrtnih žrtev'}
-ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
+ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP)) +
 geom_bar(stat = "identity", position = "dodge") +
-geom_point(aes(y = Smrtne.žrtve), position = "jitter")+
+geom_point(aes(y = Smrtne.žrtve*100), position = "jitter")+
 xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 
 ```
 
-Naslednji graf prikazuje odvisnost povprečnega BDP-ja glede na škodo, ki je nastala v naravni nesreči "Tornado". Iz danega grafa lahko vidim, da je škoda, ki je nastala v neki naravni nesreči  skladu z razmerjem glede na BDP z nekaterimi izjemami, kar potrjujeto to, da bi morali upoštevati tudi druge dejavnike(npr. v kašnem obsegu oz.kako huda je bila naravna nesreča).
+Naslednji graf prikazuje odvisnost povprečnega BDP-ja glede na škodo, ki je nastala v naravni nesreči "Tornado". Iz danega grafa lahko vidim, da je škoda, ki je nastala v neki naravni nesreči  skladu z razmerjem glede na BDP z nekaterimi izjemami, kar potrjujeto to, da bi morali upoštevati tudi druge dejavnike(npr. v kašnem obsegu oz.kako huda je bila naravna nesreča). Torej večinoma velja, da je 
+razmerje med škodo glede na BDP konstanten z nekaterimi ekstremi npr.Alabama, Virginia...
 
 ```{r graf5, echo=FALSE, fig.cap='Povprečni BDP glede na škodo'}
-ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
+ggplot(tabela_4, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
 geom_bar(stat = "identity", position = "dodge") +
 geom_point(aes(y = Škoda/1e8), position = "jitter") +
 xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))

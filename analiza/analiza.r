@@ -8,7 +8,7 @@ tabela_1 <- lapply(tabelaBDP$State, function(x) {
 }) %>% bind_rows() %>% as.data.frame() %>%
   inner_join(nesrece, by = "Row") %>%
   inner_join(tabelaBDP, by = "State") %>%
-  select(Lokacija = State, Škoda,Smrtne.žrtve, PovprecjeBDP)
+  select(-Lokacija) %>% rename(Lokacija = State)
 
 
 
@@ -28,14 +28,7 @@ ggplot(tabela_1, aes(x = PovprecjeBDP/1000, y = Smrtne.žrtve)) + geom_point()+g
 
 
 #GRUČENJE:
-tabela_3<-nesrece %>% filter(Tip.naravne.nesreče=="Flood") 
-tabela_3<-lapply(tabelaBDP$State, function(x) {
-  r <- grep(x, tabela_3$Lokacija)
-  return(data.frame(State = rep(x, length(r)), Row = r))
-}) %>% bind_rows() %>% as.data.frame() %>%
-  inner_join(tabela_3, by = "Row") %>%
-  inner_join(tabelaBDP, by = "State") %>%
-  select(Lokacija = State,Tip.naravne.nesreče, Škoda,Smrtne.žrtve, PovprecjeBDP)
+tabela_3<-tabela_1 %>% filter(Tip.naravne.nesreče=="Flood")
 
 
 ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
@@ -45,7 +38,9 @@ ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
   xlab("Lokacija") + theme(axis.text.x = element_text(angle = 90, vjust = 0.5))
 
 
-ggplot(tabela_3, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
+tabela_4<-tabela_1 %>% filter(Tip.naravne.nesreče=="Tornado")
+
+ggplot(tabela_4, aes(x = Lokacija, y = PovprecjeBDP/1000)) +
   
   geom_bar(stat = "identity", position = "dodge") +
   geom_point(aes(y = Škoda/1e8), position = "jitter") +
